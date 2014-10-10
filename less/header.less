@@ -1,0 +1,117 @@
+// header.less
+//
+
+header {
+	background-color: @color-header-bg;
+	padding: 0;
+	margin: 0;
+
+	.top-head{
+		padding-top: 30px;
+		padding-bottom: 20px;
+        padding-left: 0px; 
+
+		.logo{
+			float: left;
+            padding-left: @padding-header;
+			img{
+				height: 33px;
+			}
+		}
+
+		ul{
+			float: right;
+			margin: 0;
+			padding-top: 10px;
+
+			li{
+				display: inline-block;
+				float: left;
+				color: @color-blue;
+				a{
+					text-decoration: none;
+					padding-left:15px;
+					margin-left: 15px;
+				}
+				&:first-child a{
+						padding-left: 0;
+						margin-left: 0;
+				}
+                &:last-child a{
+                        padding-right: @padding-header;
+                }
+			}
+		}
+	}
+
+    .extended {
+        background: rgba(0,83,118,1);
+        background: -moz-linear-gradient(top, @color-blue 0%, @color-blue 50%, @color-blue2 51%, @color-blue2 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, @color-blue), color-stop(50%, @color-blue2), color-stop(51%, @color-blue2), color-stop(100%, @color-blue2));
+        background: -webkit-linear-gradient(top, @color-blue 0%, @color-blue 50%, @color-blue2 51%, @color-blue2 100%);
+        background: -o-linear-gradient(top, @color-blue 0%, @color-blue 50%, @color-blue2 51%, @color-blue2 100%);
+        background: -ms-linear-gradient(top, @color-blue 0%, @color-blue 50%, @color-blue2 51%, @color-blue2 100%);
+        background: linear-gradient(to bottom, @color-blue 0%, @color-blue 50%, @color-blue2 51%, @color-blue2 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@color-blue, endColorstr=@color-blue2, GradientType=0 );
+        -webkit-box-shadow: 1px 2px 8px @color-darkgrey;
+         z-index: @z-index-2;
+    }
+    
+	.navbar-container{
+        
+        /*header gradiend*/
+		
+        margin: 0 auto;
+        
+        /*end of header gradient*/
+        
+        
+		display: block;
+		height: 47px;
+
+		.container-fluid{
+			padding: 0;
+		}
+		ul{
+			padding: 0;
+		}
+		li{
+			display: inline-block;
+            padding: 15px 0 0px 40px;
+			vertical-align: middle;
+			width: 14.2%;
+			margin: 0;
+			float: left;
+			a{
+				text-decoration: none;
+				color: @color-white;
+                padding: 0 10px 13px 10px;
+			}
+
+			&.active, &:hover{
+				a{
+					color: @color-active;
+                    border-bottom: solid 2px @color-active;
+                    
+				}
+			}
+		}
+		li span.icon{
+			&:nth-child(1):before{
+				content: "";
+			}
+			&:nth-child(2):before{
+				content: "";
+			}
+			&:nth-child(3):before{
+				content: "";
+			}
+			&:nth-child(4):before{
+				content: "";
+			}
+			&:nth-child(5):before{
+				content: "";
+			}
+		}
+	}
+}
