@@ -1,0 +1,209 @@
+#novedades-hero{
+    width: auto;
+    background-color: @color-blue5;
+    
+    .novedades-details{
+        margin-top: 40px;
+    }
+    
+    .novedad-detail{
+        margin-left: 12%;
+        text-shadow: none;
+        
+        &:first-child{
+            margin-left: 0;
+        }
+        
+        img{
+            width: 100%;
+        }
+        
+        h2{
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 0.2;
+        }
+        
+        h3{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        h4{
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 0.8;
+            
+            &::before{
+                content: "$";
+                font-size: 24px;
+                vertical-align: top;
+            }
+            
+            &::after{
+                content: "USD";
+                font-weight: 200;
+                font-size: 24px;
+                vertical-align: top;
+                position: relative;
+                top: 5px;
+            }
+        }
+    }
+    
+    .novedad-caption{
+                width: 99%;
+                margin: 0px auto;
+                position: absolute;
+                text-align: center;
+                z-index: 999;
+                top: 150px;
+        
+        h1{
+            color: @color-white;
+            font-size: 35px;
+        }
+     }
+    
+    .logo-container{
+        height: 105px;
+        width: auto;
+        background-color: @color-blue5;  
+    }
+
+    
+    .carousel-indicators{
+        
+        position: relative;
+        top: 40px;
+        
+        .active{
+
+            opacity: 1;
+            &::after{
+                        top: 98%;
+                        left: 39%;
+                        border: solid transparent;
+                        content: " ";
+                        height: 0;
+                        width: 0;
+                        position: absolute;
+                        pointer-events: none;
+                        border-color: rgba(136,183,213,0);
+                        border-top-color: @color-blue5;
+                        border-width: 9px;
+                        }
+        }
+            
+        li{
+            
+            position: relative;
+            margin-top:0px;
+            background-image: url("../img/icons/icon-logos.png");
+            background-repeat: no-repeat;
+            display: inline-block;
+            height: 64px;
+            width: 73px;
+            margin-left: 5px;
+            margin-left: 10px;
+            text-indent: -999px;
+            cursor: pointer;
+            background-color: transparent;
+            border: 0px;
+            border-radius: 0px;
+            opacity: 0.5;
+            
+        }  
+            
+        .company1{
+            background-position: 20px 0px;
+        }
+
+         .company2{
+            background-position: -91px 0;
+        }
+
+         .company3{
+            background-position: -215px 0;
+        }
+
+         .company4{
+            background-position: -351px 0px;
+        }
+        
+        
+    }
+    
+    .carousel-inner{
+        
+        height: 540px;
+        background-image: url("../img/home/promociones-bg.png");
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-size: cover;
+        text-align: center;
+            
+        .item{
+            background-position: center;
+            background-size: cover;
+            height: 100%;
+        }
+    
+    }
+    
+    .carousel-caption{
+        
+            top: 110px;
+            text-align: center;
+            color: white;
+            left: 0px;
+            right: 0px;
+
+        
+            h1 {
+                font-weight: bold;
+                letter-spacing: 3px;
+                line-height: 0.7;
+                text-align: center;
+                font-size: 35px;
+                text-shadow: none;
+            }
+        
+            .novedad-title{
+                width: 80%;
+                margin: 0 auto;
+            }
+            p{
+                font-size: 15px;
+                color: @color-white;
+                text-shadow: none;
+            
+            }
+        
+     
+        
+             
+    }
+    
+    .carousel-control{
+        .glyphicon-chevron-left,.glyphicon-chevron-right{
+            
+            width: 33px;
+            height: 61px;
+            margin-top: -15px;
+            font-size: 30px;
+            background-image: url("../img/icons/icon-arrow.png");
+            
+            &::before{
+                content: none;
+            }
+            
+        }
+        
+        .glyphicon-chevron-right{
+            transform: rotateY(180deg);
+        }
+        
+    }
+    
+}

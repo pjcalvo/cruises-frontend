@@ -2,18 +2,17 @@
 //
 
 header {
-	background-color: @color-header-bg;
 	padding: 0;
 	margin: 0;
 
 	.top-head{
-		padding-top: 30px;
-		padding-bottom: 20px;
+		padding-top: 20px;
+        padding-bottom: 20px;
         padding-left: 0px; 
 
 		.logo{
 			float: left;
-            padding-left: @padding-header;
+            padding-left: 45px;
 			img{
 				height: 33px;
 			}
@@ -22,7 +21,9 @@ header {
 		ul{
 			float: right;
 			margin: 0;
-			padding-top: 10px;
+			padding-top: 23px;
+            padding-right: 25px;
+            padding-bottom: 5px;
 
 			li{
 				display: inline-block;
@@ -44,16 +45,11 @@ header {
 		}
 	}
 
+    .header-container{
+        background-color: @color-header-bg;
+    }
+    
     .extended {
-        background: rgba(0,83,118,1);
-        background: -moz-linear-gradient(top, @color-blue 0%, @color-blue 50%, @color-blue2 51%, @color-blue2 100%);
-        background: -webkit-gradient(left top, left bottom, color-stop(0%, @color-blue), color-stop(50%, @color-blue2), color-stop(51%, @color-blue2), color-stop(100%, @color-blue2));
-        background: -webkit-linear-gradient(top, @color-blue 0%, @color-blue 50%, @color-blue2 51%, @color-blue2 100%);
-        background: -o-linear-gradient(top, @color-blue 0%, @color-blue 50%, @color-blue2 51%, @color-blue2 100%);
-        background: -ms-linear-gradient(top, @color-blue 0%, @color-blue 50%, @color-blue2 51%, @color-blue2 100%);
-        background: linear-gradient(to bottom, @color-blue 0%, @color-blue 50%, @color-blue2 51%, @color-blue2 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@color-blue, endColorstr=@color-blue2, GradientType=0 );
-        -webkit-box-shadow: 1px 2px 8px @color-darkgrey;
          z-index: @z-index-2;
     }
     
@@ -68,6 +64,8 @@ header {
         
 		display: block;
 		height: 47px;
+        position: relative;
+        z-index: 300;
 
 		.container-fluid{
 			padding: 0;
@@ -76,22 +74,50 @@ header {
 			padding: 0;
 		}
 		li{
+            
+            &:first{
+                
+            }
+            
 			display: inline-block;
-            padding: 15px 0 0px 40px;
-			vertical-align: middle;
-			width: 14.2%;
-			margin: 0;
-			float: left;
+            vertical-align: middle;
+            width: 13.90%;
+            height: 100%;
+            text-align: center;
+            padding-top: 13px;
 			a{
 				text-decoration: none;
-				color: @color-white;
-                padding: 0 10px 13px 10px;
+                color: #fff;
+                font-size: 14px;
+                padding: 15px 16px 16px 16px;
+                margin: 0 auto;
+                position: relative;
+                width: 100%;
+                text-align: center;
+                height: 100%;
+                /* margin: auto; */
+                font-weight: 100;
+                                
 			}
 
 			&.active, &:hover{
 				a{
-					color: @color-active;
-                    border-bottom: solid 2px @color-active;
+                    background-color: @color-light-blue;
+                    font-weight: normal;
+                    
+                     &::after{
+                        top: 98%;
+                        left: 39%;
+                        border: solid transparent;
+                        content: " ";
+                        height: 0;
+                        width: 0;
+                        position: absolute;
+                        pointer-events: none;
+                        border-color: rgba(136,183,213,0);
+                        border-top-color: @color-light-blue;
+                        border-width: 9px;
+                        }
                     
 				}
 			}
