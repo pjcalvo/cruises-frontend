@@ -101,16 +101,16 @@ function getNoticiasHome() {
             
             switch ($slug) {
                 case 'royal':
-                    echo '<img src="img/icons/icon-royal.png" alt="Logo Royal"/>';
+                    echo '<img src="../img/icons/icon-royal.png" alt="Logo Royal"/>';
                     break;
                 case 'celebrity':
-                    echo '<img src="img/icons/icon-celebrity.png" alt="Logo Celebrity"/>';
+                    echo '<img src="../img/icons/icon-celebrity.png" alt="Logo Celebrity"/>';
                     break;
                  case 'azamara':
-                    echo '<img src="img/icons/icon-azamara.png" alt="Logo Azamara"/>';
+                    echo '<img src="../img/icons/icon-azamara.png" alt="Logo Azamara"/>';
                     break;
                  case 'pullmantur':
-                    echo '<img src="img/icons/icon-pullmantur.png" alt="Logo Pullmantur"/>';
+                    echo '<img src="../img/icons/icon-pullmantur.png" alt="Logo Pullmantur"/>';
                     break;
                 default:
                     echo 'No Image';
@@ -127,6 +127,49 @@ function getNoticiasHome() {
         echo '<h2>No hay noticias nuevas</h2>';
     }
                                 /* Restore original Post Data */
+                                
+}
+
+?>
+
+<?php
+function getDestinosRegiones() {   
+     // The Query
+    
+    $terms = get_terms('region');
+    foreach ($terms as $term) {
+        echo '<a class ="btn-secondary">';
+        echo $term->name;
+        echo '</a>';
+    }
+                                
+}
+?>
+
+<?php
+function getDestinosDestinos() {
+
+     // The Query
+    $args = array(
+        'post_type' => 'destino'
+    );
+    $the_query = new WP_Query( $args );
+
+    // The Loop
+    if ( $the_query->have_posts() ) {
+        
+        $iterator = 0;
+        
+        while ( $the_query->have_posts() and $iterator < 12) {
+            $iterator = $iterator + 1;
+            $the_query->the_post();
+            echo '<div class = "col-xs-1 col-sm-4" id="destino-' . get_the_ID() . '">';
+            echo '<a href="' . get_permalink() . '"><img class="destino-thumbnail" src = "' .types_render_field("imagen", array("output"=>"raw")) . '" alt="Destino"></a>';
+            echo '<h3 class="destino-name">'. get_the_Title() .'</h3>';
+            echo '</div>';
+         }                          
+    } 
+                            /* Restore original Post Data */
                                 
 }
 ?>

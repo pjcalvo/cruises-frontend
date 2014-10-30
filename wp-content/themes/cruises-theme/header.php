@@ -7,8 +7,8 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/main.min.css">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/main.min.css">
 
 		<!--[if lt IE 9]>
 			<script src="js/vendor/respond.js"></script>
@@ -19,7 +19,7 @@
 		<header>
 			<div class="container-fluid top-head">
                     <ul>
-						<li><img src="img/logo-cruceros.png" alt="Cruseros"></li>
+						<li><img src="../img/logo-cruceros.png" alt="Cruseros"></li>
 					</ul>
 			</div>			
 				<div class="header-container extended">

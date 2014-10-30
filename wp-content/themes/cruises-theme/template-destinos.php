@@ -30,21 +30,11 @@
                     </p>                                      
                 </div>
                 <div id= "destinos-buttons" class="container-fluid">
-                     <a class ="btn-secondary active">
-                         ALASKA
-                    </a>
-                     <a class ="btn-secondary">
-                         AMERICA
-                    </a>
-                     <a class ="btn-secondary">
-                         EUROPA
-                    </a>
-                     <a class ="btn-secondary">
-                         ASIA
-                    </a>
-                     <a class ="btn-secondary">
-                         CARIBE
-                    </a>
+                     <?php getDestinosRegiones(); ?>
+                </div>
+                <div id= "destinos-images" class="container-fluid">
+                    <?php getDestinosDestinos(); ?>
+                    
                 </div>
             </div>                     
      </section>
