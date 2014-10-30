@@ -37,17 +37,15 @@ function getPromocionesHome() {
 
      // The Query
     $args = array(
-        'post_type' => 'promocion'
+        'post_type' => 'promocion',
+        'posts_per_page'=>3
     );
     $the_query = new WP_Query( $args );
 
     // The Loop
     if ( $the_query->have_posts() ) {
         
-        $iterator = 0;
-        
-        while ( $the_query->have_posts() and $iterator < 3) {
-            $iterator = $iterator + 1;
+        while ( $the_query->have_posts()) {
             $the_query->the_post();
             echo '<div class="promocion" id="promocion-' . get_the_ID() . '">';
             echo '<img src="' .types_render_field("imagen", array("output"=>"raw")) . '"/>';
@@ -61,7 +59,7 @@ function getPromocionesHome() {
          }                          
     } 
     else {
-        echo '<h2>No hay novedades para este proveedor</h2>';
+        echo '<h2>No hay novedadgunes para este proveedor</h2>';
     }
                                 /* Restore original Post Data */
                                 
@@ -73,17 +71,18 @@ function getNoticiasHome() {
 
      // The Query
     $args = array(
-        'post_type' => 'noticia');
+        'post_type' => 'noticia',
+        'posts_per_page'=>10);
     $the_query = new WP_Query( $args );
 
     // The Loop
     if ( $the_query->have_posts() ) {
         
-        $iterator = 0;
+        $iterator =0;        
         
-        while ( $the_query->have_posts() and $iterator < 10) {
-            $iterator = $iterator + 1;
+        while ( $the_query->have_posts()) {
             $the_query->the_post();
+            $iterator = $iterator +1;
             
             echo '<div class="item ';  
             if($iterator == 1) echo 'active';  
@@ -151,17 +150,15 @@ function getDestinosDestinos() {
 
      // The Query
     $args = array(
-        'post_type' => 'destino'
+        'post_type' => 'destino'    
+        
     );
     $the_query = new WP_Query( $args );
 
     // The Loop
     if ( $the_query->have_posts() ) {
         
-        $iterator = 0;
-        
-        while ( $the_query->have_posts() and $iterator < 12) {
-            $iterator = $iterator + 1;
+        while ( $the_query->have_posts()) {
             $the_query->the_post();
             echo '<div class = "col-xs-1 col-sm-4" id="destino-' . get_the_ID() . '">';
             echo '<a href="' . get_permalink() . '"><img class="destino-thumbnail" src = "' .types_render_field("imagen", array("output"=>"raw")) . '" alt="Destino"></a>';
