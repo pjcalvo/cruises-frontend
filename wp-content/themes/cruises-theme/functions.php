@@ -1,4 +1,25 @@
 <?php
+  register_nav_menus(array(
+    'primary_navigation' => __('Primary Navigation', 'roots'),
+  ));
+?>
+
+<?php add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
+function special_nav_class($classes, $item){
+       $slug = sanitize_title($item->title);
+       $classes = preg_replace('/(current(-menu-|[-_]page[-_])(item|parent|ancestor))/', 'active', $classes);
+       $classes = preg_replace('/^((menu|page)[-_\w+]+)+/', '', $classes);
+
+        $classes[] = 'menu-' . $slug;
+
+        $classes = array_unique($classes);
+
+        return $classes;
+}
+
+?>
+
+<?php
 function getNovedadesByEmpresa($empresa, $count) {
 
      // The Query
@@ -100,16 +121,16 @@ function getNoticiasHome() {
             
             switch ($slug) {
                 case 'royal':
-                    echo '<img src="../img/icons/icon-royal.png" alt="Logo Royal"/>';
+                    echo '<img src="/img/icons/icon-royal.png" alt="Logo Royal"/>';
                     break;
                 case 'celebrity':
-                    echo '<img src="../img/icons/icon-celebrity.png" alt="Logo Celebrity"/>';
+                    echo '<img src="/img/icons/icon-celebrity.png" alt="Logo Celebrity"/>';
                     break;
                  case 'azamara':
-                    echo '<img src="../img/icons/icon-azamara.png" alt="Logo Azamara"/>';
+                    echo '<img src="/img/icons/icon-azamara.png" alt="Logo Azamara"/>';
                     break;
                  case 'pullmantur':
-                    echo '<img src="../img/icons/icon-pullmantur.png" alt="Logo Pullmantur"/>';
+                    echo '<img src="/img/icons/icon-pullmantur.png" alt="Logo Pullmantur"/>';
                     break;
                 default:
                     echo 'No Image';
@@ -137,7 +158,7 @@ function getDestinosRegiones() {
     
     $terms = get_terms('region');
     foreach ($terms as $term) {
-        echo '<a class ="btn-secondary">';
+        echo '<a ng-class="{active: destino == \''.$term->name .'\'}" ng-click="printConsole(\'' .$term->name . '\')" class ="btn-secondary">';
         echo $term->name;
         echo '</a>';
     }
@@ -150,7 +171,8 @@ function getDestinosDestinos() {
 
      // The Query
     $args = array(
-        'post_type' => 'destino'    
+        'post_type' => 'destino',
+        'posts_per_page'=>-1
         
     );
     $the_query = new WP_Query( $args );
@@ -160,7 +182,15 @@ function getDestinosDestinos() {
         
         while ( $the_query->have_posts()) {
             $the_query->the_post();
-            echo '<div class = "col-xs-1 col-sm-4" id="destino-' . get_the_ID() . '">';
+            
+            $terms = get_the_terms( get_the_ID(), 'region' );
+            $slug = '';
+            
+            foreach ( $terms as $term ) {
+		          $slug = $term->name;
+	        }
+            
+            echo '<div ng-show = "destino== \'\' || destino==\'' . $slug .'\'" class = "col-xs-1 col-sm-4" id="destino-' . get_the_ID() . '">';
             echo '<a href="' . get_permalink() . '"><img class="destino-thumbnail" src = "' .types_render_field("imagen", array("output"=>"raw")) . '" alt="Destino"></a>';
             echo '<h3 class="destino-name">'. get_the_Title() .'</h3>';
             echo '</div>';

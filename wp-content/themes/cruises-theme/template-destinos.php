@@ -15,9 +15,10 @@
                 </div>
             </div>                     
      </section>
+        
 
-    <section class="content">
-            <div id="destinos-content" class="extended">
+    <section class="content" ng-app="destinosApp" ng-strict-di>
+            <div  ng-controller="destinosController"  id="destinos-content" class="extended">
                 <div class="container-fluid">
                     <h1>DESTINOS</h1>
                     <p>Visitamos más de 100 puertos de escala, en algunos de los lugares más sobrecogedores y de ensueño del mundo. 
@@ -29,7 +30,7 @@
                         vacaciones en crucero y un tour en tierra a los lugares donde el barco no puede ir. 
                     </p>                                      
                 </div>
-                <div id= "destinos-buttons" class="container-fluid">
+                <div  id= "destinos-buttons" class="container-fluid">
                      <?php getDestinosRegiones(); ?>
                 </div>
                 <div id= "destinos-images" class="container-fluid">
