@@ -6,7 +6,7 @@
 
 <?php get_template_part( 'header', 'page' ); ?>
     <section class="content">
-            <div id="destinos-hero" class="extended">
+            <div id="destinos-hero" class="extended sub-hero">
                 <div class="container-fluid">
                     <h1>DESTINOS</h1>
                     <a class ="btn-primary" href="">
