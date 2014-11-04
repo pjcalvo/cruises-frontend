@@ -21,6 +21,7 @@
                     <ul>
 						<li><img src="/img/logo-cruceros.png" alt="Cruseros"></li>
 					</ul>
+                    <p class="countries">Costa Rica - Nicaragua - Honduras - El Salvador - Belice - IR</p>
 			</div>			
 				<div class="header-container extended">
                     <div class="container-fluid navbar-container">
