@@ -63,3 +63,48 @@
     border: 2px solid @color-blue3;
     color: @color-white;
 }
+
+.btn-pag{
+    background-color: #0073bb;
+    font-size: 16px;
+    font-weight: lighter;
+    color: #fff;
+    height: 38px;
+    text-shadow: none;
+    padding-top: 12px ;
+    padding-bottom: 12px;
+    padding-left: 15px;
+    padding-right: 15px;    
+    background-repeat: no-repeat;
+    margin-right: 2px;
+    
+    &:hover{
+        text-decoration: none;
+        opacity: 0.8;
+        color: @color-white;
+        
+        a{
+            text-decoration: none; 
+        }
+    }
+    
+    &.active{
+        background-color: @color-blue2;
+    }
+    
+}
+
+.btn-back{
+    background-position: center left;
+    padding-left: 45px;
+    padding-right: 15px;
+    background-image: url("../img/icons/icon-caret-back.png");
+}
+
+.btn-forward{
+    background-position: center right;
+    padding-left: 15px;
+    padding-right: 45px;
+    background-image: url("../img/icons/icon-caret.png");
+}
+
