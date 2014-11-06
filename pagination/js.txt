@@ -1,0 +1,54 @@
+<script src="/js/vendor/ui-bootstrap-tpls-0.11.2.js"></script>
+
+<script>
+               angular.module('todos', ['ui.bootstrap']);
+                  angular.module('todos').controller('TodoController', function ($scope) {
+                      
+                  $scope.todoss = [
+                      {text:'learn angular', done:true},
+                      {text:'build an angular app2', done:false},
+                      {text:'build an angular app3', done:false},
+                      {text:'build an angular app4', done:false}];       
+                      
+                  $scope.paginatedTodos = {};
+                  $scope.filteredTodos = $scope.todoss;     
+                  
+                  $scope.totalItems = 4;
+                  $scope.currentPage = 1;
+                  $scope.itemsPage = 2;
+                  $scope.maxSize = 5;
+                      
+                  $scope.filterTodos = function(done) {
+                    
+                    $scope.filteredTodos = [];   
+                    $count = 0;
+                      
+                    angular.forEach($scope.todoss, function(todo){
+    
+                        if(todo.done == done) {
+                            $scope.filteredTodos.push(todo);
+                            $count = $count + 1 ;
+                        }
+                        $scope.totalItems = $count;                      
+                      
+                        });
+                  };
+                      
+                  $scope.setPage = function (pageNo) {
+                    $scope.currentPage = pageNo;
+                  };
+                      
+                  $scope.$watch('currentPage + filteredTodos', function() {
+                        var begin = (($scope.currentPage - 1) * $scope.itemsPage)
+                        , end = begin + $scope.itemsPage;
+
+                        $scope.paginatedTodos = $scope.filteredTodos.slice(begin, end);
+                  });    
+                
+
+    
+                });
+
+        
+    </script>
+
