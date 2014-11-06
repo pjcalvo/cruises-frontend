@@ -1,0 +1,16 @@
+        <section ng-app="todos" ng-strict-di>
+            <div ng-controller="TodoController">
+                <div ng-click="filterTodos(true)">True</div>
+                <div ng-click="filterTodos(false)">False</div>
+                <h1>Todos</h1>
+                <h4>{{todos.length}} remain</h4>
+                <ul>
+                  <li ng-repeat="todo in paginatedTodos">{{todo.text}}</li>
+                </ul>
+                <pagination direction-links="false" 
+                            boundary-links="true" 
+                            total-items="totalItems"
+                            items-per-page="itemsPage"
+                            ng-model="currentPage"></pagination>
+                </div>
+    </section>
