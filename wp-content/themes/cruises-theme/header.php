@@ -14,6 +14,113 @@
 			<script src="js/vendor/respond.js"></script>
 			<script src="js/vendor/html5shiv.js"></script>
 		<![endif]-->
+        
+        
+        <!--javscript-->
+        <script
+                src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
+        </script>
+        <script src="/js/vendor/angular.js"></script>
+        <script src="/js/scripts.min.js"></script>
+        <script src="/js/vendor/jquery-1.11.1.js"></script>
+        <script src="/js/vendor/bootstrap.js"></script>
+        <script src="/js/vendor/ui-bootstrap-tpls-0.11.2.js"></script>
+        <script>
+            $('.carousel-hero').carousel({
+                interval: 3000
+            });
+            $('.carousel-news').carousel({
+                interval: 1000
+            });
+            
+        </script> 
+
+        <script>
+            angular.module('contactApp', [])
+             .controller('contactController', function($scope) {
+                    $scope.adults='3';
+                    $scope.children='0';
+                
+                    $scope.updateAdults = function($adultsupdate) {
+                         console.log($adultsupdate);
+                         $scope.adults = $adultsupdate;
+                        
+                    };
+                    
+                    $scope.updateChildren = function($childrenupdate) {
+                         console.log($childrenupdate);
+                         $scope.children = $childrenupdate;
+                        
+                    };
+                            
+             });         
+        </script>
+
+
+        
+        <script>
+               angular.module('barcos', ['ui.bootstrap']);
+                  angular.module('barcos').controller('barcoController', function ($scope) {   
+                      
+                  $scope.barcoss = [];       
+                  <?php getListaBarcos(); ?>
+                  
+                      
+                  $scope.paginatedBarcos = {};
+                  $scope.filteredBarcos = $scope.barcoss;     
+                  
+                  $scope.totalItems = 3;
+                  $scope.currentPage = 1;
+                  $scope.itemsPage = 1;
+                  $scope.maxSize = 5;
+                      
+                      
+                  $scope.filterBarcos = function(empresa) {
+                    
+                    if (empresa == '') {
+                        $scope.filteredBarcos = $scope.barcoss;
+                        $scope.totalItems = $scope.bigCount;
+                    }
+                      else{
+                    
+                        $scope.filteredBarcos = [];   
+                        $count = 0;
+                      
+                        angular.forEach($scope.barcoss, function(barco){
+    
+                            if(barco.empresa == empresa) {
+                                $scope.filteredBarcos.push(barco);
+                                $count = $count + 1 ;
+                            }
+                            $scope.totalItems = $count;                      
+                      
+                            });
+                      }
+                  };
+                      
+                  $scope.setPage = function (pageNo) {
+                    $scope.currentPage = pageNo;
+                  };
+                      
+                  $scope.$watch('currentPage + filteredBarcos', function() {
+                        var begin = (($scope.currentPage - 1) * $scope.itemsPage)
+                        , end = begin + $scope.itemsPage;
+
+                        $scope.paginatedBarcos = $scope.filteredBarcos.slice(begin, end);
+                  });    
+                
+
+    
+                });
+
+        
+        </script>
+        
+        
+        
+        
+        
+        
 	</head>
 	<body>
 		<header>

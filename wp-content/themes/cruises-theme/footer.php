@@ -45,45 +45,5 @@
                 </div>
             </div>
 		</footer>
-                
-        <!--javscript-->
-        <script
-                src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
-        </script>
-        <script src="/js/vendor/angular.js"></script>
-        <script src="/js/scripts.min.js"></script>
-        <script src="/js/vendor/jquery-1.11.1.js"></script>
-        <script src="/js/vendor/bootstrap.js"></script>
-        <script>
-            $('.carousel-hero').carousel({
-                interval: 3000
-            });
-            $('.carousel-news').carousel({
-                interval: 1000
-            });
-            
-        </script> 
-
-        <script>
-            angular.module('contactApp', [])
-             .controller('contactController', function($scope) {
-                    $scope.adults='3';
-                    $scope.children='0';
-                
-                    $scope.updateAdults = function($adultsupdate) {
-                         console.log($adultsupdate);
-                         $scope.adults = $adultsupdate;
-                        
-                    };
-                    
-                    $scope.updateChildren = function($childrenupdate) {
-                         console.log($childrenupdate);
-                         $scope.children = $childrenupdate;
-                        
-                    };
-                            
-             });         
-        </script>
-
 	</body>
 </html>

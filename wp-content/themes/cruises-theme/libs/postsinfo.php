@@ -179,3 +179,54 @@ function getDestinosDestinos() {
                                 
 }
 ?>
+
+<?php
+function getEmpresasBarcos() {   
+     // The Query
+    
+    $terms = get_terms('empresa');
+    foreach ($terms as $term) {
+        echo '<li role="presentation"><a role="menuitem" tabindex="-1" ng-click="filterBarcos(\''.$term->name .'\')">' . $term->name . '</a></li>';
+    }
+                                
+}
+?>
+
+<?php
+function getListaBarcos() {
+
+     // The Query
+    $args = array(
+        'post_type' => 'barco',
+        'posts_per_page'=>-1
+        
+    );
+    $the_query = new WP_Query( $args );
+    
+    $count = 0;
+
+    // The Loop
+    if ( $the_query->have_posts() ) {
+        
+        while ( $the_query->have_posts()) {
+            $the_query->the_post();
+            
+            $terms = get_the_terms( get_the_ID(), 'empresa' );
+            $slug = '';
+            
+            foreach ( $terms as $term ) {
+		          $slug = $term->name;
+	        }
+                $count = $count+1;
+                echo '$scope.barcoss.push({"empresa":"' .$slug . '", "imagen":"' . types_render_field("imagen", array("output"=>"raw")) . '", "nombre":"' . get_the_Title() . '", "detalle" : "' . get_the_content() . '", "link": "'. get_permalink()  . '"});';
+            
+         }
+        
+            echo '$scope.bigCount = ' . $count .';';
+        
+        
+    } 
+                            /* Restore original Post Data */
+                                
+}
+?>

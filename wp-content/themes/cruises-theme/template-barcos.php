@@ -18,7 +18,7 @@
         
 
     <section class="content">
-            <div id="barcos-content" class="extended">
+            <div id="barcos-content" class="extended" ng-app="barcos" ng-controller="barcoController">
                 <div class="container-fluid">
                     <h1>NUESTRA FLOTA</h1>
                     <p>La belleza del destino no será lo único que te sorprenda en este viaje: ¡quedarás maravillado con el propio barco! 
@@ -30,72 +30,37 @@
                     <div id="barcos-categorias">
                         <h3>NUESTROS CRUCEROS</h3>
                         <div class="dropdown">
-                          <button class="btn btn-default dropdown-toggle" type="button" id="dropdown-barcos" data-toggle="dropdown">
+                          <button class="btn btn-default dropdown-toggle" type="button" id="dropdown-barcos" data-toggle="menu">
                             Todos
                             <span class="caret"></span>
                           </button>
                           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-barcos">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Todos</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Azamara</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Celebrity Cruises</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Royal Caribbean</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Pullmantur</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="filterBarcos('')">Todos</a></li>
+                            <?php getEmpresasBarcos(); ?>
+        
                           </ul>
                         </div>
                     </div>
                     <div id="barcos-lista">
-                        <div class="barco-detalle">
+                        <div class="barco-detalle" ng-repeat="barco in paginatedBarcos">
                             <div class="imagen-crucero">
-                                <img src="../img/novedades/novedad-1.png"/>
+                                <img src="{{barco.imagen}}"/>
                             </div>
                             <div class="crucero-detalle">
-                                <h4> ADVENTURE <span>of the </span>Seas</h4>
-                                <p>Hemos llevado los viajes en crucero a otro nivel. Disfruta de características únicas, como una pista de patinaje sobre hielo, 
-                                    el bulevar comercial Royal Promenade y una pared de escalada. Y eso es sólo el comienzo. Cómo logramos reunir todas estas 
-                                    innovadoras ideas en un sólo barco? Simple. Construimos un barco más grande: el Adventure of the Seas, de 138.000 toneladas y 
-                                    capacidad para 3.114 huéspedes. Las innovaciones en este y otros barcos de la Clase Voyager ofrecen más espacio para cada húsped, 
-                                    además de camarotes mejorados, más opciones para cenar e instalaciones recreativas excepcionales.
-                                </p>
-                                <a class ="btn-primary" href="">
+                                <h4> {{barco.nombre}}</h4>
+                                <p>{{barco.detalles}}</p>
+                                <a class ="btn-primary" href="{{barco.link}}">
                                     LEER MAS
                                 </a>
                             </div>
                         </div>
-                        <div class="barco-detalle">
-                            <div class="imagen-crucero">
-                                <img src="../img/novedades/novedad-1.png"/>
-                            </div>
-                            <div class="crucero-detalle">
-                                <h4> ADVENTURE <span>of the </span>Seas</h4>
-                                <p>Hemos llevado los viajes en crucero a otro nivel. Disfruta de características únicas, como una pista de patinaje sobre hielo, 
-                                    el bulevar comercial Royal Promenade y una pared de escalada. Y eso es sólo el comienzo. Cómo logramos reunir todas estas 
-                                    innovadoras ideas en un sólo barco? Simple. Construimos un barco más grande: el Adventure of the Seas, de 138.000 toneladas y 
-                                    capacidad para 3.114 huéspedes. Las innovaciones en este y otros barcos de la Clase Voyager ofrecen más espacio para cada húsped, 
-                                    además de camarotes mejorados, más opciones para cenar e instalaciones recreativas excepcionales.
-                                </p>
-                                <a class ="btn-primary" href="">
-                                    LEER MAS
-                                </a>
-                            </div>
+                        <pagination direction-links="false" 
+                            boundary-links="true" 
+                            total-items="totalItems"
+                            items-per-page="itemsPage"
+                            ng-model="currentPage"></pagination>
                         </div>
-                        <div class="barco-detalle">
-                            <div class="imagen-crucero">
-                                <img src="../img/novedades/novedad-1.png"/>
-                            </div>
-                            <div class="crucero-detalle">
-                                <h4> ADVENTURE <span>of the </span>Seas</h4>
-                                <p>Hemos llevado los viajes en crucero a otro nivel. Disfruta de características únicas, como una pista de patinaje sobre hielo, 
-                                    el bulevar comercial Royal Promenade y una pared de escalada. Y eso es sólo el comienzo. Cómo logramos reunir todas estas 
-                                    innovadoras ideas en un sólo barco? Simple. Construimos un barco más grande: el Adventure of the Seas, de 138.000 toneladas y 
-                                    capacidad para 3.114 huéspedes. Las innovaciones en este y otros barcos de la Clase Voyager ofrecen más espacio para cada húsped, 
-                                    además de camarotes mejorados, más opciones para cenar e instalaciones recreativas excepcionales.
-                                </p>
-                                <a class ="btn-primary" href="">
-                                    LEER MAS
-                                </a>
-                            </div>
-                        </div>
-                        <div class="pagination">
+                        <!--<div class="pagination">
                              <a class ="btn-pag btn-back" href= "">
                                 Atrás
                             </a>
@@ -108,7 +73,7 @@
                             <a class ="btn-pag btn-forward" href= "">
                                 Adelante
                             </a>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>                     
