@@ -71,7 +71,7 @@
                   
                   $scope.totalItems = 3;
                   $scope.currentPage = 1;
-                  $scope.itemsPage = 1;
+                  $scope.itemsPage = 6;
                   $scope.maxSize = 5;
                       
                       

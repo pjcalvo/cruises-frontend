@@ -48,7 +48,7 @@
                             </div>
                             <div class="crucero-detalle">
                                 <h4> {{barco.nombre}}</h4>
-                                <p>{{barco.detalles}}</p>
+                                <p>{{barco.detalle}}</p>
                                 <a class ="btn-primary" href="{{barco.link}}">
                                     LEER MAS
                                 </a>
