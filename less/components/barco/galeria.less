@@ -1,0 +1,70 @@
+#barco-hero {
+    margin-top: 60px;
+    margin-bottom: 65px;
+}
+
+#galeria-portada{
+    width: 100%;
+    height: 330px;
+    position: relative;
+    clear: both;
+    text-align: center;
+    margin-bottom: 20px;
+    
+    
+    
+    
+}
+
+#imagen-portada {
+    width: 100%;
+    height: 100%;    
+    
+}
+
+#todas-fotos{
+    display: inline-block;
+    width: 100%;
+    
+    p{
+        font-weight: normal;
+        font-size: 15px;
+        clear: both;
+    }
+    
+    .imagenes-galeria{
+        width: 50%;
+        padding-right: 30px;
+       
+    }
+    
+    .lista-fotos{
+        list-style: none;
+        display: inline-flex;
+        margin-left: 0px;
+        padding-left: 0px;
+    }
+    
+    .item-foto{
+        width: 60px;
+        height: 40px;
+        margin-left: 10px;
+        
+        &:hover{
+            cursor: pointer;
+        }
+        
+        &:first-child{
+            margin-left: 0px;
+        }
+        
+        &.active {
+            opacity: 0.5;
+        }
+        
+        .imagen-thumbnail{
+            width: 100%;
+            max-height: 100%;
+        }
+    }
+}

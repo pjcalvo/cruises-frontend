@@ -21,19 +21,10 @@
                 src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
         </script>
         <script src="/js/vendor/angular.js"></script>
-        <script src="/js/scripts.min.js"></script>
         <script src="/js/vendor/jquery-1.11.1.js"></script>
         <script src="/js/vendor/bootstrap.js"></script>
         <script src="/js/vendor/ui-bootstrap-tpls-0.11.2.js"></script>
-        <script>
-            $('.carousel-hero').carousel({
-                interval: 3000
-            });
-            $('.carousel-news').carousel({
-                interval: 1000
-            });
-            
-        </script> 
+
 
         <script>
             angular.module('contactApp', [])
@@ -56,8 +47,7 @@
              });         
         </script>
 
-
-        
+   
         <script>
                angular.module('barcos', ['ui.bootstrap']);
                   angular.module('barcos').controller('barcoController', function ($scope) {   
@@ -114,12 +104,7 @@
                 });
 
         
-        </script>
-        
-        
-        
-        
-        
+        </script>  
         
 	</head>
 	<body>

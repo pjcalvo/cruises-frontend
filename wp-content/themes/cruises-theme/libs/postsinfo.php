@@ -230,3 +230,28 @@ function getListaBarcos() {
                                 
 }
 ?>
+
+
+<?php
+function getDatosBarco() {
+
+    $postBarco = get_post();
+    
+    echo '$scope.imagenesInterior = [{src:"';
+    echo types_render_field("interior",   array("output"=>"raw",'separator'=>'"},{src:"'));
+    echo '"}];';
+    
+    echo '$scope.imagenesExterior = [{src:"';
+    echo types_render_field("exterior",   array("output"=>"raw",'separator'=>'"},{src:"'));
+    echo '"}];';
+    
+    echo '$scope.name = "' . $postBarco->post_title . '";';
+    echo '$scope.detalle = "' . $postBarco->post_content . '";';
+    echo '$scope.heroImage = "'. types_render_field("imagen", array("output"=>"raw")) .'";';
+    
+    
+    
+                            /* Restore original Post Data */
+                                
+}
+?>

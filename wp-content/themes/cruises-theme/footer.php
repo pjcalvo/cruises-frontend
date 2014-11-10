@@ -46,4 +46,15 @@
             </div>
 		</footer>
 	</body>
+            <script>
+            $('.carousel-news').carousel({
+                interval: 1000
+            });
+            $('.carousel-hero').carousel({
+                interval: 3000
+            });
+            
+        </script>
+
+        <script src="/js/scripts.min.js"></script>
 </html>
