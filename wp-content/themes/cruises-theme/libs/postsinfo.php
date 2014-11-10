@@ -249,7 +249,25 @@ function getDatosBarco() {
     echo '$scope.detalle = "' . $postBarco->post_content . '";';
     echo '$scope.heroImage = "'. types_render_field("imagen", array("output"=>"raw")) .'";';
     
+    $count = 0;
     
+    // Find connected pages
+    $destinos = new WP_Query( array(
+        'connected_type' => 'barco_to_destino',
+        'connected_items' => $postBarco,
+        'nopaging' => true,
+        ) );
+    
+     while ( $destinos->have_posts()) {
+         $destinos->the_post();
+         
+         echo '$scope.destinoss.push({"nombre":"' . $destino.get_the_title() . '", "imagen":"' .types_render_field("imagen", array("output"=>"raw")) . '", "link": "' . get_permalink() . '"});';
+         
+         $count = $count +1;
+         
+     }
+    
+    echo '$scope.totalItems = ' . $count .';';
     
                             /* Restore original Post Data */
                                 

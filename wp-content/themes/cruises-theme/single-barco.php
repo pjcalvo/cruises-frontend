@@ -6,7 +6,8 @@
 
 <?php get_template_part( 'header', 'page' ); ?>
  <script>
-               angular.module('barco', ['ui.bootstrap']);
+                 
+                  angular.module('barco', ['ui.bootstrap']);
                   angular.module('barco').controller('barco-controller', function ($scope) {   
                       
                   $scope.destinoss = []; 
@@ -17,11 +18,9 @@
                   $scope.detalle ="";                                
                       
                   <?php getDatosBarco(); ?>      
-                      
-                      
+                                       
                   $scope.paginatedDestinos = [];     
                   
-                  $scope.totalItems = 12;
                   $scope.currentPage = 1;
                   $scope.itemsPage = 6;
                   $scope.maxSize = 0;
@@ -48,7 +47,7 @@
 
         
         </script>
-<div ng-app="barco" ng-controller="barco-controller">    
+<div ng-app="barco" ng-controller="barco-controller">
     <section class="content">
             <div id="barco-hero" class="small-container">
                 <div id="galeria-portada">
@@ -87,42 +86,26 @@
                 <hr/>
                 <h3 class="small-container">ESCOGE ENTRE NUESTROS DESTINOS</h3>
                 <div id="lista-destinos-barco" class="small-container">
-                    <div class="item-destino-barco col-xs-6">
-                        <img src="/wp-content/uploads/2014/10/uruguay-300x188.png">
-                        <h4>ROMA</h4>
-                        <a class ="btn-primary" href="">
+                    <div class="item-destino-barco col-xs-6" ng-repeat = "destino in paginatedDestinos">
+                        
+                        <img src="{{destino.imagen}}">
+                        <h4>{{destino.nombre}}</h4>
+                        <a class ="btn-primary" href="/reservaciones/">
                                 <strong>RESERVACIÓN</strong>
                         </a>
-                        <a class ="btn-primary" href="">
+                        <a class ="btn-primary" href="{{destino.link}}">
                                 <strong>DETALLES</strong>
                         </a>
-                    </div>
-                    <div class="item-destino-barco  col-xs-6">
-                        <img src="/wp-content/uploads/2014/10/uruguay-300x188.png">
-                        <h4>ROMA</h4>
-                        <a class ="btn-primary" href="">
-                                <strong>RESERVACIÓN</strong>
-                        </a>
-                        <a class ="btn-primary" href="">
-                                <strong>DETALLES</strong>
-                        </a>
-                    </div>
-                    <hr>
-                    <div class="item-destino-barco  col-xs-6">
-                        <img src="/wp-content/uploads/2014/10/uruguay-300x188.png">
-                        <h4>ROMA</h4>
-                        <a class ="btn-primary" href="">
-                                <strong>RESERVACIÓN</strong>
-                        </a>
-                        <a class ="btn-primary" href="">
-                                <strong>DETALLES</strong>
-                        </a>
-                    </div>
-                    <hr>
-                    <div >
-                        Here goes the pagination component
                     </div>
                 </div>
+                <hr>
+                <div id ="pagination-barco" class="small-container">
+                    <pagination direction-links="false" 
+                            boundary-links="true" 
+                            total-items="totalItems"
+                            items-per-page="itemsPage"
+                            ng-model="currentPage"></pagination>
+                </div>    
             </div>                     
      </section>
 </div>
