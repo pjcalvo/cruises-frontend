@@ -54,8 +54,8 @@
                     <img id = "imagen-portada" src="{{heroImage}}">
                 </div>
                 <div id= "todas-fotos">
-                    <div class="imagenes-galeria left">
-                        <div class="right">
+                    <div class="imagenes-galeria left-float">
+                        <div class="right-float">
                         <p>FOTOS INTERNAS</p>
                             <ul class="lista-fotos" >
                                 <li ng-class="{active: heroImage == imagen.src}" class="item-foto" ng-repeat="imagen in imagenesInterior">
@@ -65,7 +65,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="imagenes-galeria right">
+                    <div class="imagenes-galeria right-float">
                         <p>FOTOS EXTERNAS</p>
                         <ul class="lista-fotos">
                             <li class="item-foto" ng-class="{active: heroImage == imagen.src}" ng-repeat="imagen in imagenesExterior">
@@ -81,7 +81,7 @@
             <div id="barco-content" class="container-fluid">
                <div class="small-container">
                    <h1>{{name}}</h1>
-                   <p>{{detalle}}</p>
+                   <p class="multi-line">{{detalle}}</p>
                 </div>
                 <hr/>
                 <h3 class="small-container">ESCOGE ENTRE NUESTROS DESTINOS</h3>

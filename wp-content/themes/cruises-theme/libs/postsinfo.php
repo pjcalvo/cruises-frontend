@@ -218,7 +218,7 @@ function getListaBarcos() {
 		          $slug = $term->name;
 	        }
                 $count = $count+1;
-                echo '$scope.barcoss.push({"empresa":"' .$slug . '", "imagen":"' . types_render_field("imagen", array("output"=>"raw")) . '", "nombre":"' . get_the_Title() . '", "detalle" : "' . get_the_content() . '", "link": "'. get_permalink()  . '"});';
+                echo '$scope.barcoss.push({"empresa":"' .$slug . '", "imagen":"' . types_render_field("imagen", array("output"=>"raw")) . '", "nombre":"' . get_the_Title() . '", "detalle" : "' . preg_replace("/\r\n|\r|\n/",'\\n',get_the_content()) . '", "link": "'. get_permalink()  . '"});';
             
          }
         
@@ -245,8 +245,8 @@ function getDatosBarco() {
     echo types_render_field("exterior",   array("output"=>"raw",'separator'=>'"},{src:"'));
     echo '"}];';
     
-    echo '$scope.name = "' . $postBarco->post_title . '";';
-    echo '$scope.detalle = "' . $postBarco->post_content . '";';
+    echo '$scope.name = "' .$postBarco->post_title . '";';
+    echo '$scope.detalle = "' . preg_replace("/\r\n|\r|\n/",'\\n',$postBarco->post_content) . '";';
     echo '$scope.heroImage = "'. types_render_field("imagen", array("output"=>"raw")) .'";';
     
     $count = 0;
