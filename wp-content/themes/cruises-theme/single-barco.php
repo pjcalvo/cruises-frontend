@@ -55,9 +55,9 @@
                 </div>
                 <div id= "todas-fotos">
                     <div class="imagenes-galeria left-float">
-                        <div class="right-float">
-                        <p>FOTOS INTERNAS</p>
-                            <ul class="lista-fotos" >
+                        <div>
+                        <p class="right-float">FOTOS INTERNAS</p>
+                            <ul class="lista-fotos right-float" >
                                 <li ng-class="{active: heroImage == imagen.src}" class="item-foto" ng-repeat="imagen in imagenesInterior">
                                     <img ng-click="setHeroImage(imagen.src)" class="imagen-thumbnail" src="{{imagen.src}}">
                                 </li>

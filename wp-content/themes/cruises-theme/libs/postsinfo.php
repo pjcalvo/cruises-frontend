@@ -218,7 +218,7 @@ function getListaBarcos() {
 		          $slug = $term->name;
 	        }
                 $count = $count+1;
-                echo '$scope.barcoss.push({"empresa":"' .$slug . '", "imagen":"' . types_render_field("imagen", array("output"=>"raw")) . '", "nombre":"' . get_the_Title() . '", "detalle" : "' . preg_replace("/\r\n|\r|\n/",'\\n',get_the_content()) . '", "link": "'. get_permalink()  . '"});';
+                echo '$scope.barcoss.push({"empresa":"' .$slug . '", "imagen":"' . types_render_field("imagen", array("output"=>"raw")) . '", "nombre":"' . get_the_Title() . '", "detalle" : "' . substr(preg_replace("/\r\n|\r|\n/",'\\n',get_the_content()),0, 450) . '...", "link": "'. get_permalink()  . '"});';
             
          }
         
@@ -235,7 +235,7 @@ function getListaBarcos() {
 <?php
 function getDatosBarco() {
 
-    $postBarco = get_post();
+    $postBarco = the_post();
     
     echo '$scope.imagenesInterior = [{src:"';
     echo types_render_field("interior",   array("output"=>"raw",'separator'=>'"},{src:"'));
@@ -245,8 +245,8 @@ function getDatosBarco() {
     echo types_render_field("exterior",   array("output"=>"raw",'separator'=>'"},{src:"'));
     echo '"}];';
     
-    echo '$scope.name = "' .$postBarco->post_title . '";';
-    echo '$scope.detalle = "' . preg_replace("/\r\n|\r|\n/",'\\n',$postBarco->post_content) . '";';
+    echo '$scope.name = "' . get_the_Title() . '";';
+    echo '$scope.detalle = "' . preg_replace("/\r\n|\r|\n/",'\\n',get_the_Content()) . '";';
     echo '$scope.heroImage = "'. types_render_field("imagen", array("output"=>"raw")) .'";';
     
     $count = 0;
@@ -254,7 +254,7 @@ function getDatosBarco() {
     // Find connected pages
     $destinos = new WP_Query( array(
         'connected_type' => 'barco_to_destino',
-        'connected_items' => $postBarco,
+        'connected_items' => get_queried_object(),
         'nopaging' => true,
         ) );
     

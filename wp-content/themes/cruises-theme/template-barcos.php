@@ -48,7 +48,7 @@
                             </div>
                             <div class="crucero-detalle">
                                 <h4> {{barco.nombre}}</h4>
-                                <p class="multi-line">{{barco.detalle}}</p>
+                                <p ng-bind = "barco.detalle"></p>
                                 <a class ="btn-primary" href="{{barco.link}}">
                                     LEER MAS
                                 </a>
@@ -60,20 +60,6 @@
                             items-per-page="itemsPage"
                             ng-model="currentPage"></pagination>
                         </div>
-                        <!--<div class="pagination">
-                             <a class ="btn-pag btn-back" href= "">
-                                Atrás
-                            </a>
-                            <a class ="btn-pag active" href= "">
-                                1
-                            </a>
-                             <a class ="btn-pag" href= "">
-                                2
-                            </a>
-                            <a class ="btn-pag btn-forward" href= "">
-                                Adelante
-                            </a>
-                        </div>-->
                     </div>
                 </div>
             </div>                     
