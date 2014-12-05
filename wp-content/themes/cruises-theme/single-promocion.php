@@ -36,9 +36,7 @@ Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing el
                     </p>
                 </div>
                 <div id ="comprar-novedad">
-                    <a class ="btn-primary" href="/reservaciones">
-                                    APROVECHE <strong>RESERVA AHORA</strong>
-                        </a>
+                           <?php get_template_part( 'partials/-reserve-button', 'page' ); ?>  
                 </div>
                      
             </div>

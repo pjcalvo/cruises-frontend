@@ -11,7 +11,6 @@
     color: @color-white;
     opacity: 1;
     display: block;
-        
     
     .form-field{
         width: 46.5%;
@@ -32,6 +31,25 @@
         input{
             opacity: 1;
         }
+    }
+    
+    .field-100 {
+        width: 100%;
+    }
+    
+    .field-300{
+        width: 308px;
+        margin-right: 12px;
+        
+        &:last-child{
+            margin-top: 0px;
+        }
+    }
+    
+    .comment-field {
+        width: 875px;
+        height: 180px;
+        
     }
     
     .button-field{
@@ -83,4 +101,14 @@
     &:hover{
         background-color: @color-blue3;
     }
+}
+
+#comentarios {
+    height: 150px;
+    padding-top: 12px;
+    resize: none;
+}
+
+.flat {
+    border: solid 1px #cbcbcb;
 }

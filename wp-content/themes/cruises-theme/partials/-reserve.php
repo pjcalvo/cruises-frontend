@@ -3,9 +3,7 @@
           <div class="container-fluid">
                <h1>RESERVA TU <strong>CRUCERO</strong></h1>
                     
-                 <a class ="btn-primary" href="">
-                                APROVECHA <strong>RESERVA AHORA</strong>
-                 </a>
+              <?php get_template_part( 'partials/-reserve-button', 'page' ); ?>  
          </div>
     </div>            
 </section>

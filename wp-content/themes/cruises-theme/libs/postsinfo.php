@@ -273,3 +273,30 @@ function getDatosBarco() {
                                 
 }
 ?>
+
+<?php
+function getDestinoDetalles() {
+
+    $postBarco = the_post();
+    
+    echo '<div id="novedad-portada">';
+    echo '<img id = "imagen-portada" src="'. types_render_field("portada", array("output"=>"raw")).'">';
+    echo '</div>';
+    
+    echo ' <div id ="destino-titulo">';
+    echo ' <h1>'.get_the_Title().'</h1>';
+    
+    echo '<div id ="destino-contenido">';
+    echo '<p class="multi-line">' . get_the_Content(). '</p>';
+    echo '<hr/>';
+    echo '</div>';
+    
+    echo '<div id ="paquete-contenido">';
+    echo '<h2>TIPO DE PAQUETE</h2>';
+    echo '<ul>';
+    echo '<li>Cruceros</li>';
+    echo '<li>'.get_the_Title().'</li>';
+    echo '</ul>';
+    
+    }
+?>

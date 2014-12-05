@@ -10,9 +10,7 @@
                 <div class="container-fluid">
                     <div class ="right">
                         <h1>NOSOTROS</h1>
-                        <a class ="btn-primary" href="">
-                                    APROVECHA <strong>RESERVA AHORA</strong>
-                        </a>
+       <?php get_template_part( 'partials/-reserve-button', 'page' ); ?>  
                     </div>            
                 </div>
             </div>                     

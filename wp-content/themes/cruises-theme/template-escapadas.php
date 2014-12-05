@@ -9,9 +9,7 @@
             <div id="escapadas-hero" class="extended sub-hero">
                 <div class="container-fluid">
                     <h1>ESCAPADAS</h1>
-                    <a class ="btn-primary" href="">
-                                APROVECHA <strong>RESERVA AHORA</strong>
-                    </a>
+                          <?php get_template_part( 'partials/-reserve-button', 'page' ); ?>  
                 </div>
             </div>                     
      </section>
@@ -40,9 +38,7 @@
                             <div id="collage-text">
                                 <h2>LAS MEJORES</h2>
                                 <h1><strong>ESCAPADAS</strong></h1>
-                                <a class ="btn-primary" href="">
-                                    APROVECHA <strong>RESERVA AHORA</strong>
-                                </a>
+                                       <?php get_template_part( 'partials/-reserve-button', 'page' ); ?>  
                             </div>
                         </div>
                     </div>

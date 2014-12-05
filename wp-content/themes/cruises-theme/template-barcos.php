@@ -9,9 +9,7 @@
             <div id="barcos-hero" class="extended sub-hero">
                 <div class="container-fluid">
                     <h1>BARCOS</h1>
-                    <a class ="btn-primary" href="">
-                                APROVECHA <strong>RESERVA AHORA</strong>
-                    </a>
+                           <?php get_template_part( 'partials/-reserve-button', 'page' ); ?>  
                 </div>
             </div>                     
      </section>
