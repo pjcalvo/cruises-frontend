@@ -20,9 +20,7 @@
                 <div class="container-fluid">
                     <h1>ESCAPADAS</h1>
                     <p>LA MEJOR MANERA DE DESCONECTAR</p>
-                    <p>Sólo dispones de 4 ó 5 noches para hacer una escapada y lo que menos te apetece es conducir durante horas o quedar atrapado en largas caravanas? No pierdas más los nervios.
-                        <br>
-                        En 2009, aparca tu coche y déjate llevar en crucero corto de Royal Caribbean. 
+                    <p class="multi-line"><?php getPageContent(); ?>
                     </p>
                     <div id="destinos-collage">
                         <div class="columna-baja columna col-xs-4">

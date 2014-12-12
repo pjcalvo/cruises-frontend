@@ -19,9 +19,7 @@
             <div id="contactenos-content" class="extended">
                 <div class="container-fluid">
                     <h1>¿CÓMO PODEMOS AYUDARTE?</h1>
-                    <p>Nuestra meta es darte el mejor servicio posible en todo nuestro quehacer. De esta manera, si no puedes encontrar la respuesta 
-                        a una pregunta en nuestro sitio web y deseas hablar con un Especialista en cucero de
-                        Royal Caribbean o un Representante de Royal Caribbean en tu país, por el motivo que sea, tendremos mucho gusto en ayudarte. 
+                    <p class="multi-line"><?php getPageContent(); ?> 
                     </p>
                     <form id="form-consulta" class="container-fluid" ng-app="contactApp" ng-strict-di>
                         <div id="form-fields" ng-controller="contactController">

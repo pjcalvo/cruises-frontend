@@ -30,9 +30,7 @@ function getNovedadesByEmpresa($empresa, $count) {
                                 /* Restore original Post Data */
                                 
 }
-?>
 
-<?php
 function getPromocionesHome() {
 
      // The Query
@@ -64,9 +62,7 @@ function getPromocionesHome() {
                                 /* Restore original Post Data */
                                 
 }
-?>
 
-<?php
 function getNoticiasHome() {
 
      // The Query
@@ -129,9 +125,6 @@ function getNoticiasHome() {
                                 
 }
 
-?>
-
-<?php
 function getDestinosRegiones() {   
      // The Query
     
@@ -143,9 +136,7 @@ function getDestinosRegiones() {
     }
                                 
 }
-?>
 
-<?php
 function getDestinosDestinos() {
 
      // The Query
@@ -178,9 +169,7 @@ function getDestinosDestinos() {
                             /* Restore original Post Data */
                                 
 }
-?>
 
-<?php
 function getEmpresasBarcos() {   
      // The Query
     
@@ -190,9 +179,7 @@ function getEmpresasBarcos() {
     }
                                 
 }
-?>
 
-<?php
 function getListaBarcos() {
 
      // The Query
@@ -229,10 +216,7 @@ function getListaBarcos() {
                             /* Restore original Post Data */
                                 
 }
-?>
 
-
-<?php
 function getDatosBarco() {
 
     $postBarco = the_post();
@@ -272,9 +256,7 @@ function getDatosBarco() {
                             /* Restore original Post Data */
                                 
 }
-?>
 
-<?php
 function getDestinoDetalles() {
 
     $postBarco = the_post();
@@ -298,5 +280,13 @@ function getDestinoDetalles() {
     echo '<li>'.get_the_Title().'</li>';
     echo '</ul>';
     
+    }
+
+function getPageContent() {
+
+    $postBarco = the_post();
+    
+    echo get_the_Content();
+ 
     }
 ?>
