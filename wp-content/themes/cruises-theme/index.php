@@ -36,11 +36,8 @@
                     <h1>50%<H1>
                     <h2>DE DESCUENTO</h2>
                     <h3>EN EL SEGUNDO PASAJERO</h3>
-                            <a class ="btn-primary" href="">
-                                APROVECHA <strong>RESERVA AHORA</strong>
-                            </a>
+                            <?php get_template_part( 'partials/-reserve-button', 'page' ); ?>  
                 </div> 
-                
             
               <!-- Controls -->
               <a class="left carousel-control" href="#carousel-hero" role="button" data-slide="prev">
@@ -65,6 +62,7 @@
                 </div>
             </div>            
 		</section>
+
     
 <?php get_template_part( 'partials/-noticias', 'page' ); ?>        
     
@@ -164,6 +162,7 @@
                         
 		</section>
 
+<?php get_template_part( 'partials/-reservaciones', 'page' ); ?>
 <?php get_template_part( 'partials/-reserve', 'page' ); ?>
 
 <?php wp_footer(); // Crucial footer hook! ?>

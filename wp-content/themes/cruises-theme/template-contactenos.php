@@ -9,9 +9,7 @@
             <div id="contactenos-hero" class="extended sub-hero">
                 <div class="container-fluid">
                     <h1>CONTÁCTENOS</h1>
-                    <a class ="btn-primary" href="">
-                                APROVECHA <strong>RESERVA AHORA</strong>
-                    </a>
+                           <?php get_template_part( 'partials/-reserve-button', 'page' ); ?>  
                 </div>
             </div>                     
      </section>
@@ -21,15 +19,13 @@
             <div id="contactenos-content" class="extended">
                 <div class="container-fluid">
                     <h1>¿CÓMO PODEMOS AYUDARTE?</h1>
-                    <p>Nuestra meta es darte el mejor servicio posible en todo nuestro quehacer. De esta manera, si no puedes encontrar la respuesta 
-                        a una pregunta en nuestro sitio web y deseas hablar con un Especialista en cucero de
-                        Royal Caribbean o un Representante de Royal Caribbean en tu país, por el motivo que sea, tendremos mucho gusto en ayudarte. 
+                    <p class="multi-line"><?php getPageContent(); ?> 
                     </p>
                     <form id="form-consulta" class="container-fluid" ng-app="contactApp" ng-strict-di>
                         <div id="form-fields" ng-controller="contactController">
                             <div class="form-field">
                                 <p>NOMBRE Y APELLIDO</p>
-                                <input class="text-field" type="time" id="names" placeholder="John Smith" required/>    
+                                <input class="text-field" type="text" id="names" placeholder="John Smith" required/>    
                             </div>
                             <div class="form-field right-field">
                                 <p>EMAIL</p>
@@ -78,9 +74,9 @@
                                   </ul>
                                 </div>
                             </div>
-                            <div class="form-field  right-field">
+                            <div class="form-field comment-field">
                                 <p>COMENTARIOS</p>
-                                <input class="text-field" type="text" id="comentarios" placeholder="Comentarios" required/>    
+                                <textarea  cols="40" rows="5" class="text-field" id="comentarios" placeholder="Comentarios" required></textarea>    
                             </div>
                             
                              <div class="form-field button-field center-field">

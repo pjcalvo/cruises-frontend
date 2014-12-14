@@ -1,5 +1,7 @@
 body{
     
+    background-image: none !important ;
+    
    .container-fluid{
       max-width: @content-size;
       margin: 0 auto;
@@ -9,11 +11,11 @@ body{
    }
     
     .extended{
-      //max-width: 1600px;
+      min-width: 1180px;
       margin: 0 auto;
       padding-left:0px;
       padding-right:0px;
-      position: relative;
+      //position: relative;
    }
     
    .small-container{
@@ -23,6 +25,18 @@ body{
       padding-right:0px;
       position: relative;
    }
+}
+
+.modal {
+    z-index: 99999;
+}
+
+.posi{
+    position:fixed;
+    margin-top: 0;
+    top:0;
+    width: 100%;
+    z-index: 20;
 }
 
 .button-blue{

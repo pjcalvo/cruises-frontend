@@ -22,7 +22,6 @@
               center:new google.maps.LatLng(9.932169, -84.051929) ,
               zoom:17,
               scrollwheel: false,
-              disableDefaultUI:true,
               mapTypeId:google.maps.MapTypeId.ROADMAP
               };
 

@@ -104,7 +104,21 @@
                 });
 
         
-        </script>  
+        </script> 
+        
+        <script>
+            
+            $(window).scroll(function () {
+                if( $(window).scrollTop() > 120){
+                    $('#menu-header').addClass('posi');
+                
+                
+            }else if ($(window).scrollTop() <= 119){
+                    $('#menu-header').removeClass('posi');
+            }}
+            );
+        
+        </script>
         
 	</head>
 	<body>
@@ -115,7 +129,7 @@
 					</ul>
                     <p class="countries">Costa Rica - Nicaragua - Honduras - El Salvador - Belice - IR</p>
 			</div>			
-				<div class="header-container extended">
+				<div id= "menu-header" class="header-container extended">
                     <div class="container-fluid navbar-container">
                     <?php
                         if (has_nav_menu('primary_navigation')) : wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'menu'));

@@ -9,9 +9,7 @@
             <div id="barcos-hero" class="extended sub-hero">
                 <div class="container-fluid">
                     <h1>BARCOS</h1>
-                    <a class ="btn-primary" href="">
-                                APROVECHA <strong>RESERVA AHORA</strong>
-                    </a>
+                           <?php get_template_part( 'partials/-reserve-button', 'page' ); ?>  
                 </div>
             </div>                     
      </section>
@@ -21,11 +19,7 @@
             <div id="barcos-content" class="extended" ng-app="barcos" ng-controller="barcoController">
                 <div class="container-fluid">
                     <h1>NUESTRA FLOTA</h1>
-                    <p>La belleza del destino no será lo único que te sorprenda en este viaje: ¡quedarás maravillado con el propio barco! 
-                    Los cruceros de Royal Caribbean son los más innovadores y emocionantes de la industria del turismo. 
-                    La experiencia a bordo es increíble, desde las paredes de escalada en cada barco hasta los elegantes comedores principales 
-                    y relajantes spas. Y el servicio que recibas será igualmente sorprendente gracias a nuestra atención Gold Anchor Service ©, 
-                    disponible en todos los barcos. 
+                    <p class="multi-line"><?php getPageContent(); ?>
                     </p>
                     <div id="barcos-categorias">
                         <h3>NUESTROS CRUCEROS</h3>
