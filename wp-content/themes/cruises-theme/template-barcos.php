@@ -49,6 +49,7 @@
                             <div class="crucero-detalle">
                                 <h4> {{barco.nombre}}</h4>
                                 <p ng-bind = "barco.detalle"></p>
+                                <p class= "clase-barco" ng-hide = "barco.clase == ''"><strong>Clase: </strong>{{barco.clase}}</p>
                                 <a class ="btn-primary" href="{{barco.link}}">
                                     LEER MAS
                                 </a>
