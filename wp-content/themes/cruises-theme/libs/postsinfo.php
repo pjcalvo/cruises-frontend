@@ -199,13 +199,24 @@ function getListaBarcos() {
             $the_query->the_post();
             
             $terms = get_the_terms( get_the_ID(), 'empresa' );
+            $clases = get_the_terms( get_the_ID(), 'clase' );
             $slug = '';
+            $claseName = '';
             
-            foreach ( $terms as $term ) {
-		          $slug = $term->name;
-	        }
+            if ( $terms && ! is_wp_error( $terms ) ){
+                foreach ( $terms as $term ) {
+                      $slug = $term->name;
+                }
+            }
+            
+            if ( $clases && ! is_wp_error( $clases ) ){
+                foreach ( $clases as $termino ) {
+                      $claseName = $termino->name;
+                }
+            }
+                
                 $count = $count+1;
-                echo '$scope.barcoss.push({"empresa":"' .$slug . '", "imagen":"' . types_render_field("imagen", array("output"=>"raw")) . '", "nombre":"' . get_the_Title() . '", "detalle" : "' . substr(preg_replace("/\r\n|\r|\n/",'\\n',get_the_content()),0, 450) . '...", "link": "'. get_permalink()  . '"});';
+                echo '$scope.barcoss.push({"clase":"' . $claseName . '", "empresa":"' .$slug . '", "imagen":"' . types_render_field("imagen", array("output"=>"raw")) . '", "nombre":"' . get_the_Title() . '", "detalle" : "' . substr(preg_replace("/\r\n|\r|\n/",'\\n',get_the_content()),0, 450) . '...", "link": "'. get_permalink()  . '"});';
             
          }
         

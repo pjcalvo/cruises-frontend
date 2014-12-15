@@ -5,48 +5,6 @@
 ?>
 
 <?php get_template_part( 'header', 'page' ); ?>
- <script>
-                 
-                  angular.module('barco', ['ui.bootstrap']);
-                  angular.module('barco').controller('barco-controller', function ($scope) {   
-                      
-                  $scope.destinoss = []; 
-                  $scope.destinosCount = 0;
-                  $scope.imagesInterior = [];
-                  $scope.imagesExterior = [];
-                  $scope.name ="";
-                  $scope.detalle ="";                                
-                      
-                  <?php getDatosBarco(); ?>      
-                                       
-                  $scope.paginatedDestinos = [];     
-                  
-                  $scope.currentPage = 1;
-                  $scope.itemsPage = 6;
-                  $scope.maxSize = 0;
-                      
-                      
-                  $scope.setHeroImage = function($imagen) {
-                      $scope.heroImage = $imagen;                     
-                  };
-                      
-                  $scope.setPage = function (pageNo) {
-                    $scope.currentPage = pageNo;
-                  };
-                      
-                  $scope.$watch('currentPage + filteredBarcos', function() {
-                        var begin = (($scope.currentPage - 1) * $scope.itemsPage)
-                        , end = begin + $scope.itemsPage;
-
-                        $scope.paginatedDestinos = $scope.destinoss.slice(begin, end);
-                  });    
-                
-
-    
-                });
-
-        
-    </script>
     <section class="content">
             <div id="itinerario-hero" class="small-container">
                 
@@ -65,6 +23,31 @@
                     </a>
                 </div>           
         </div>
+     </section>
+     <section class="content">
+         <div id="itinerario-dias" class="extended">
+             <div id= "circle">
+             
+             </div>
+            <div class="small-container">
+                <div id="itinerario-dias">
+                    <div class="itinerario-row title-row">
+                        <div class="itinerario-content">Dia</div>
+                        <div class="itinerario-content">Lugar</div>
+                        <div class="itinerario-content">Fecha Salida</div>
+                        <div class="itinerario-content">Fecha Llegada</div>                        
+                    </div>
+                    <div class="itinerario-row">
+                        <div class="itinerario-content">Dia 1</div>
+                        <div class="itinerario-content">San Jose</div>
+                        <div class="itinerario-content">13pm</div>
+                        <div class="itinerario-content">12am</div>                        
+                    </div>
+                    
+                </div>
+            </div>
+         
+         </div>
      </section>
     
 <?php get_template_part( 'partials/-noticias', 'page' ); ?>  
