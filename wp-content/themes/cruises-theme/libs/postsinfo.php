@@ -300,4 +300,125 @@ function getPageContent() {
     echo get_the_Content();
  
     }
+
+function getDatosItinerario() {
+
+    $postItinerario = the_post();   
+    $DestinoTitle = '';
+    $DestinoImage = '';
+    $ItinerarioTitle = get_the_Title();
+    $ItinerarioMapa = types_render_field("mapa", array("output"=>"raw"));
+    $ItinerarioContent = get_the_Content();
+    $ItinerarioIncluido = types_render_field("incluido", array("output"=>"raw"));
+    $ItinerarioNoIncluido = types_render_field("noincluido", array("output"=>"raw"));
+    
+     $BarcoTitle = '';
+     $BarcoImage = '';
+     $BarcoDetalle = '';
+    
+    $ItinerarioLista = preg_split('/<br[^>]*>/i', types_render_field("itinerario", array("output"=>"string")));
+    
+    // Find connected destinos
+    $destinos = new WP_Query( array(
+        'connected_type' => 'itinerario_to_destino',
+        'connected_items' => get_queried_object(),
+        'nopaging' => true,
+        ) );
+    
+    while ( $destinos->have_posts()) {
+         $destinos->the_post();
+        
+        $DestinoTitle = $destino.get_the_Title() ;
+        $DestinoImage = types_render_field("portada", array("output"=>"raw"));
+     }
+    
+    // Find connected barcos
+    $barcos = new WP_Query( array(
+        'connected_type' => 'itinerario_to_barco',
+        'connected_items' => get_queried_object(),
+        'nopaging' => true,
+        ) );
+    
+    while ( $barcos->have_posts()) {
+         $barcos->the_post();
+        
+        $BarcoTitle = $barco.get_the_Title() ;
+        $BarcoImages = types_render_field("interior",   array("output"=>"raw",'separator'=>';;'));;
+        $BarcoImages = explode(';;',$BarcoImages);
+        $BarcoImage = $BarcoImages[0];
+        $BarcoDetalle = $barco.get_the_Content() ;
+     }
+    
+    echo '<section class="content">';
+    echo '<div id="itinerario-hero" class="small-container">';
+    echo '<img id = "imagen-portada" src="'. $DestinoImage .'">';
+    echo '<h1>' . $DestinoTitle . '</h1>';
+    echo '</div>';
+    echo '</section>';
+    
+    echo '<section class="content">';
+    echo '<div id="itinerario-content" class="container-fluid">';
+    echo '<div class="small-container">';
+    echo '<h1>'. $ItinerarioTitle .'</h1>';
+    echo '<p class="">';
+        echo  $ItinerarioContent ;
+    echo '</p>';
+    echo '<a class ="btn-primary" href="/reservaciones/">';
+    echo '            RESERVAR <strong>AHORA</strong>';
+    echo '</a>';
+    echo '</div>';
+    
+    echo '<div id = "incluido" class="small-container">';
+    echo '<div class="col-incluido">';
+    echo '<p class="multiline"><Strong>Incluido: </Strong>';
+    echo $ItinerarioIncluido;
+    echo '</div>';
+    echo '<div class="col-incluido">';
+    echo '<p class="multiline"><Strong>No Incluido: </Strong>';
+    echo $ItinerarioNoIncluido;
+    echo '</div>';   echo '</div>';    echo '</div>'; 
+    echo '</section>';
+    
+    echo ' <section class="content">';
+    echo '<div id="itinerario-dias" class="extended">';
+    echo ' <div id= "circle"></div>';
+    echo '<div class="small-container navegacion">';
+    echo '<h2>ITINERARIO DE NAVEGACION</h2>';
+    echo '<div id="lista-dias">';
+    echo '<div class="itinerario-row title-row">';
+    echo '<div class="itinerario-content short">DIA</div>';
+    echo '<div class="itinerario-content large">PUERTO**</div>';
+    echo '<div class="itinerario-content short">LLEGADA</div>';
+    echo '<div class="itinerario-content short">SALIDA</div>  ';
+    echo '<div class="itinerario-content short">ACTIVIDAD</div> '; 
+    echo '</div>';
+    
+    foreach ($ItinerarioLista as &$value) {
+        $ItinerarioDia = explode(';',$value);
+        
+        echo '<div class="itinerario-row">';
+        echo '<div class="itinerario-content short">'. $ItinerarioDia[0] .'</div>';
+        echo '<div class="itinerario-content large">'. $ItinerarioDia[1] .'</div>';
+        echo '<div class="itinerario-content short">'. $ItinerarioDia[2] .'</div>';
+        echo '<div class="itinerario-content short">'. $ItinerarioDia[3] .'</div>';
+        echo '<div class="itinerario-content short">'. $ItinerarioDia[4] .'</div>';
+        echo '</div>';
+    }
+    
+    echo '</div>';
+    echo '<h2>MAPA***</h2>';
+    echo '<img class="itinerario-mapa" src ="'. $ItinerarioMapa.'" />';
+    
+    echo '</div>'; echo '</div>'; echo '</section>';
+    
+    
+    echo '<section class="content container-fluid">';
+    echo '<div id= "itinerario-barco" class="small-container">';
+    echo '<h1>'. $BarcoTitle .'<sup>&#174;</sup></h1>';
+    echo '<img src="'.$BarcoImage .'">';
+    echo '<p><strong>ESPECIFICACIONES DEL '. $BarcoTitle. '</strong><sup>&#174;</sup></p>';
+    echo '<p>'. $BarcoDetalle.'</p>';
+    echo '</div> </section>';
+    
+}
 ?>

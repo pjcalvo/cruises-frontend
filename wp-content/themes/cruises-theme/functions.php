@@ -13,6 +13,18 @@ function my_connection_types() {
         'from' => 'barco',
         'to' => 'destino'
     ) );
+    
+    p2p_register_connection_type( array(
+        'name' => 'itinerario_to_destino',
+        'from' => 'itinerario',
+        'to' => 'destino'
+    ) );
+    
+    p2p_register_connection_type( array(
+        'name' => 'itinerario_to_barco',
+        'from' => 'itinerario',
+        'to' => 'barco'
+    ) );
 }
 add_action( 'p2p_init', 'my_connection_types' );
 ?>

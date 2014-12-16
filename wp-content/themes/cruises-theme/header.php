@@ -106,23 +106,24 @@
         
         </script> 
         
-        <script>
+        <!--<script>
             
             $(window).scroll(function () {
-                if( $(window).scrollTop() > 120){
-                    $('#menu-header').addClass('posi');
+                if( $(window).scrollTop() > 0   ){
+                    $('header').addClass('posi');
                 
                 
-            }else if ($(window).scrollTop() <= 119){
-                    $('#menu-header').removeClass('posi');
+            }else if ($(window).scrollTop() <= 0){
+                    $('header').removeClass('posi');
             }}
             );
         
-        </script>
+        </script>-->
         
 	</head>
 	<body>
 		<header>
+            <div class="fixed-header">
 			<div class="container-fluid top-head">
                     <ul>
 						<li><img src="/img/logo-cruceros.png" alt="Cruseros"></li>
@@ -146,4 +147,5 @@
 					</ul>-->
 				</div>
 			</div>
+            </div>
 		</header>
