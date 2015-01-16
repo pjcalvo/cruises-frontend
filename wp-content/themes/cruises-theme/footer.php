@@ -14,7 +14,7 @@
                         <img src="/img/icons/icon-phone.png">
                         <p>(506) 2234-1818</br></br></p> 
                         <img src="/img/icons/icon-email.png">
-                        <p>correo@cruceros.com</p>  
+                        <p>infos@cruceros.com</p>  
                     </div>
                     <div class="footer-content col-xs-3">
                         <img src="/img/icons/icon-phone2.png">

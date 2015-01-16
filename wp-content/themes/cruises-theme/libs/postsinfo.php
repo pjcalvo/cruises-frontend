@@ -49,7 +49,7 @@ function getPromocionesHome() {
             echo '<img src="' .types_render_field("imagen", array("output"=>"raw")) . '"/>';
             echo '<h2>' .types_render_field("promocion", array("output"=>"string")) . '</h2>';
             echo '<div class="detail promo">';
-            echo '<p>' .types_render_field("detalles", array("output"=>"string")) . '</p>';
+            echo '<p>' . substr(types_render_field("detalles", array("output"=>"string")),0, 250) . '...' . '</p>';
             echo '</div>';
             echo '<a class ="btn-primary" href="' . get_permalink() . ' ">';
             echo '<strong>LEER MAS</strong>';

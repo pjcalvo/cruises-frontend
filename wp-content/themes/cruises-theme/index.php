@@ -71,8 +71,7 @@
                 <div class="container-fluid">
                     <h1>PROMOCIONES</h1>
                     <div class="col-xs-10 detail">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et neque et sem ornare egestas at nec sem. Praesent interdum ac enim ac ultricies. 
-                            Aenean pretium tristique libero, viverra vestibulum nisi vestibulum ut. Aenean auctor lobortis volutpat.</p>
+                        <p></p>
                     </div>
                     <div class="promociones">
                         <?php getPromocionesHome(); ?>
