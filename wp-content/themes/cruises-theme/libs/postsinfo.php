@@ -363,7 +363,7 @@ function getDatosItinerario() {
     echo '<p class="">';
         echo  $ItinerarioContent ;
     echo '</p>';
-    echo '<a class ="btn-primary" href="/reservaciones/">';
+    echo '<a class ="btn-primary" href="" data-toggle="modal" data-target="#myModal">';
     echo '            RESERVAR <strong>AHORA</strong>';
     echo '</a>';
     echo '</div>';
@@ -417,7 +417,7 @@ function getDatosItinerario() {
     echo '<h1>'. $BarcoTitle .'<sup>&#174;</sup></h1>';
     echo '<img src="'.$BarcoImage .'">';
     echo '<p><strong>ESPECIFICACIONES DEL '. $BarcoTitle. '</strong><sup>&#174;</sup></p>';
-    echo '<p>'. $BarcoDetalle.'</p>';
+    echo '<p class="multi-line barco-itinerario-detalle">'. $BarcoDetalle.'</p>';
     echo '</div> </section>';
     
 }
