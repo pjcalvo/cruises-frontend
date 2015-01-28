@@ -47,6 +47,141 @@
              });         
         </script>
         
+        <script>
+               angular.module('barcos', ['ui.bootstrap']);
+                  angular.module('barcos').controller('barcoController', function ($scope) {   
+                      
+                  $scope.barcoss = [];       
+                  <?php getListaBarcos(); ?>
+                      
+                  $scope.paginatedBarcos = {};
+                  $scope.filteredBarcos = $scope.barcoss;     
+                  
+                  $scope.totalItems = $scope.bigCount;
+                  $scope.currentPage = 1;
+                  $scope.itemsPage = 10;
+                  $scope.maxSize = 5;
+                      
+                      
+                  $scope.filterBarcos = function(empresa) {
+                    
+                    if (empresa == '') {
+                        $scope.filteredBarcos = $scope.barcoss;
+                        $scope.totalItems = $scope.bigCount;
+                    }
+                      else{
+                    
+                        $scope.filteredBarcos = [];   
+                        $count = 0;
+                      
+                        angular.forEach($scope.barcoss, function(barco){
+    
+                            if(barco.empresa == empresa) {
+                                $scope.filteredBarcos.push(barco);
+                                $count = $count + 1 ;
+                            }
+                            $scope.totalItems = $count;                      
+                      
+                            });
+                      }
+                  };
+                      
+                  $scope.setPage = function (pageNo) {
+                    $scope.currentPage = pageNo;
+                  };
+                      
+                  $scope.$watch('currentPage + filteredBarcos', function() {
+                        var begin = (($scope.currentPage - 1) * $scope.itemsPage)
+                        , end = begin + $scope.itemsPage;
+
+                        $scope.paginatedBarcos = $scope.filteredBarcos.slice(begin, end);
+                  });    
+                
+
+    
+                });
+
+        
+        </script> 
+        
+        <script>
+                  angular.module('itinerarios', ['ui.bootstrap']);
+                  angular.module('itinerarios').controller('itinerarioController', function ($scope) {   
+                      
+                  $scope.itinerarioss = [];
+                  $scope.barcos = [];
+                  $scope.selectedBarco = "Todos";             
+                  $scope.barcos.push({"nombre":"Todos"});               
+                  <?php getItinerariosBarcos(); ?>
+                  
+                  $scope.destinos = [];
+                  $scope.selectedDestino = "Todos";             
+                  $scope.destinos.push({"nombre":"Todos"});               
+                  <?php getItinerariosDestinos(); ?>
+                      
+                  $scope.selectedDate = "0001-01-01";
+                      
+                 <?php getListaItinerarios(); ?>
+                      
+                  $scope.paginatedItinerarios = {};
+                  $scope.filteredItinerarios = $scope.itinerarioss;     
+                  
+                  $scope.totalItems = 3;
+                  $scope.currentPage = 1;
+                  $scope.itemsPage = 12;
+                  $scope.maxSize = 5;
+                      
+                      
+                  $scope.filterbyBarcos = function(clickedBarco) {
+                    $scope.selectedBarco = clickedBarco;
+                    if (clickedBarco == '') {
+                        $scope.filteredItinerarios = $scope.itinerarioss;
+                        $scope.totalItems = $scope.bigCount;
+                    }
+                      else{
+                    
+                        $scope.filteredItinerarios = [];   
+                        $count = 0;
+                      
+                        angular.forEach($scope.itinerarioss, function(itinerario){
+    
+                            if(itinerario.barco == clickedBarco) {
+                                $scope.filteredItinerarios.push(itinerario);
+                                $count = $count + 1 ;
+                            }
+                            $scope.totalItems = $count;                      
+                      
+                            });
+                      }
+                  };
+                      
+                $scope.filterbyDestinos = function(clickedDestino) {
+                    $scope.selectedDestino = clickedDestino;
+                };
+                      
+                      
+                $scope.filterbyDate = function() {
+                    
+                };
+                      
+                  $scope.setPage = function (pageNo) {
+                    $scope.currentPage = pageNo;
+                  };
+                      
+                  $scope.$watch('currentPage + filteredItinerarios', function() {
+                        var begin = (($scope.currentPage - 1) * $scope.itemsPage)
+                        , end = begin + $scope.itemsPage;
+
+                        $scope.paginatedItinerarios = $scope.filteredItinerarios.slice(begin, end);
+                  });    
+                
+
+    
+                });
+
+        
+        </script> 
+        
         <!--<script>
             
             $(window).scroll(function () {

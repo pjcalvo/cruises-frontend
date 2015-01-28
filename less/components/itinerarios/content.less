@@ -1,0 +1,128 @@
+#itinerarios-content{
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+    
+    h1{
+    
+        font-weight: bold;
+        font-size: 35px;
+        margin-top: 0px;
+        margin-bottom: 30px;
+        
+    }
+        
+}
+
+#itinerario-categorias {
+    margin-top: 60px;
+    display: block;
+    
+    h3{
+    
+        font-size: 17px;
+        font-weight: 400;
+        display: inline-block;
+        margin-left: 25px;
+        
+        &:first-child{
+            margin-left: 0px;
+        } 
+    }
+    
+    .dropdown{
+    
+        display: inline-block;
+        margin-left: 30px;
+
+    }
+    
+    .dropdown-itinerario{
+    
+        height: 50px;
+        width: 258px;
+        font-style: italic;
+        font-weight: 100;
+        text-align: left;
+        padding-left: 30px;
+        
+        .caret{
+            float: right;
+            margin-top: 8px;
+        }
+    
+    }
+    
+    .dropdown-menu{
+    
+        width: 258px;
+    
+    }
+}
+
+#itinerarios-lista{
+    width: 100%;
+    padding-top: 70px;
+    display: inline-block;
+    padding-bottom: 100px;
+    
+    .itinerario-detalle{
+        
+        width: 47%;
+        text-align: left;
+        float: left;
+        display: inline-block;
+        
+        &:nth-child(even) {
+            margin-left: 5%;
+            float: right;
+        }
+        
+        .itinerario-imagen {
+            width: 100%;
+            height: 236px;
+            margin-bottom: 36px;
+            text-align: center;
+            
+            img {
+                width: auto;
+                height: 100%;
+            }
+        }
+        
+        p{
+            margin-bottom: 26px;
+        }
+
+    }
+    
+    h4{
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+    a{
+        margin-right: 40px;
+        
+        &:last-child{
+            margin-right: 0px;
+        }
+    }
+}
+
+.btn-fecha {
+    background-color: #0073bb;
+    padding: 15px 14px 12px 14px;
+    font-size: 18px;
+    border-radius: 5px;
+    height: 49px;
+    width: 150px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+
+.itinerario-texto {
+    height: 250px;
+}

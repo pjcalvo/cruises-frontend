@@ -228,6 +228,128 @@ function getListaBarcos() {
                                 
 }
 
+function getListaItinerarios() {
+
+     // The Query
+    $args = array(
+        'post_type' => 'itinerario',
+        'posts_per_page'=>-1
+        
+    );
+    $the_query = new WP_Query( $args );
+    
+    $count = 0;
+    $nombreBarco = "";
+    $nombreDestino = "";
+
+    // The Loop
+    if ( $the_query->have_posts() ) {
+        
+        while ( $the_query->have_posts()) {
+            $the_query->the_post();            
+                
+            $count = $count+1;
+            
+            $idItinerario = get_the_ID();
+            $nombreItinerario = html_entity_decode(get_the_Title(),ENT_QUOTES,'UTF-8');
+            $detallesItinerario = substr(preg_replace("/\r\n|\r|\n/",'\\n',get_the_content()),0, 450);
+            $linkItinerario = get_permalink();
+            
+            
+            // Find connected barcos
+            $barcos = new WP_Query( array(
+                'connected_type' => 'itinerario_to_barco',
+                'connected_items' => $idItinerario,
+                'nopaging' => true,
+                ) );     
+
+             while ( $barcos->have_posts()) {
+                   $barcos->the_post();    
+                   $nombreBarco = $barco.get_the_Title();
+                   
+             }
+            
+             // Find connected destinos
+            $destinos = new WP_Query( array(
+                'connected_type' => 'itinerario_to_destino',
+                'connected_items' => $idItinerario,
+                'nopaging' => true,
+                ) );     
+
+             while ( $destinos->have_posts()) {
+                   $destinos->the_post();    
+                   $nombreDestino = $destino.get_the_Title();
+                   
+             }
+            
+             echo '$scope.itinerarioss.push({"destino":"'. $nombreDestino .'","barco":"'. $nombreBarco .'","nombre":"' . $nombreItinerario . '", "detalle" : "' . $detallesItinerario . '...", "link": "'. $linkItinerario . '"});';
+            
+         }
+        
+            echo '$scope.bigCount = ' . $count .';';
+        
+        
+    } 
+                            /* Restore original Post Data */
+                                
+}
+
+function getItinerariosBarcos() {
+
+     // The Query
+    $args = array(
+        'post_type' => 'barco',
+        'posts_per_page'=>-1
+        
+    );
+    $the_query = new WP_Query( $args );
+    
+    $count = 0;
+
+    // The Loop
+    if ( $the_query->have_posts() ) {
+        
+        while ( $the_query->have_posts()) {
+            $the_query->the_post();
+                
+                $count = $count+1;
+                echo '$scope.barcos.push({"nombre":"' . get_the_Title() . '"});';          
+         }
+             
+        
+    } 
+                            /* Restore original Post Data */
+                                
+}
+
+function getItinerariosDestinos() {
+
+     // The Query
+    $args = array(
+        'post_type' => 'destino',
+        'posts_per_page'=>-1
+        
+    );
+    $the_query = new WP_Query( $args );
+    
+    $count = 0;
+
+    // The Loop
+    if ( $the_query->have_posts() ) {
+        
+        while ( $the_query->have_posts()) {
+            $the_query->the_post();
+                
+                $count = $count+1;
+                echo '$scope.destinos.push({"nombre":"' . get_the_Title() . '"});';          
+         }
+             
+        
+    } 
+                            /* Restore original Post Data */
+                                
+}
+
 function getDatosBarco() {
 
     $postBarco = the_post();
