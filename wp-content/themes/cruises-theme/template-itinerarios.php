@@ -42,17 +42,17 @@
                             <li role="presentation" ng-repeat="destino in destinos"><a role="menuitem" tabindex="-1" ng-click="filterbyDestinos(destino.nombre)">{{destino.nombre}}</a></li>
                           </ul>
                         </div>
-                        <h3><input class="text-field" type= "date" id="fechasalida" placeholder="" ng-click="filterbyDate()" ng-model="selectedDate"/>    </h3>
+                        <h3><input class="text-field" type= "date" id="fechasalida" placeholder="" ng-change="filterbyDate()" ng-model="selectedDate"/>    </h3>
                     </div>
                     <div id="itinerarios-lista">
-                            <div class="itinerario-detalle" ng-repeat= "itinerario in itinerarioss">
+                            <div class="itinerario-detalle" ng-repeat= "itinerario in filteredItinerarios">
                                 <div class="itinerario-texto">
                                     <h4><span ng-bind="itinerario.nombre"></span></h4>
                                     <p><span ng-bind="itinerario.detalle"></p>
                                     <a class ="btn-primary" href="{{itinerario.link}}">
                                         <strong>LEER MAS</strong>
                                     </a>
-                                    <a class ="btn-primary" href="">
+                                    <a class ="btn-primary" href="" data-toggle="modal" data-target="#myModal">
                                         HAGA SUS <strong>RESERVACIONES</strong>
                                     </a>
                                 </div>

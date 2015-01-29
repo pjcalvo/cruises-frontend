@@ -255,6 +255,10 @@ function getListaItinerarios() {
             $detallesItinerario = substr(preg_replace("/\r\n|\r|\n/",'\\n',get_the_content()),0, 450);
             $linkItinerario = get_permalink();
             
+            $fechasSalida = '[{"fecha":"';
+            $fechasSalida = $fechasSalida . types_render_field("fecha-salida",   array("output"=>"normal","format" => "Y-m-d", "separator"=>'"},{"fecha":"'));
+            $fechasSalida = $fechasSalida . '"}]';
+            
             
             // Find connected barcos
             $barcos = new WP_Query( array(
@@ -282,7 +286,7 @@ function getListaItinerarios() {
                    
              }
             
-             echo '$scope.itinerarioss.push({"destino":"'. $nombreDestino .'","barco":"'. $nombreBarco .'","nombre":"' . $nombreItinerario . '", "detalle" : "' . $detallesItinerario . '...", "link": "'. $linkItinerario . '"});';
+             echo '$scope.itinerarioss.push({"fechas":'. $fechasSalida . ',"destino":"'. $nombreDestino .'","barco":"'. $nombreBarco .'","nombre":"' . $nombreItinerario . '", "detalle" : "' . $detallesItinerario . '...", "link": "'. $linkItinerario . '"});';
             
          }
         

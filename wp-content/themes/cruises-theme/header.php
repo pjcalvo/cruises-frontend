@@ -129,38 +129,61 @@
                   $scope.totalItems = 3;
                   $scope.currentPage = 1;
                   $scope.itemsPage = 12;
-                  $scope.maxSize = 5;
+                  $scope.maxSize = 5;   
+                  
+                  $scope.getFilteredItinerarios = function(){
+                  
+                      $scope.filteredItinerarios = [];   
+                      count = 0;
                       
                       
-                  $scope.filterbyBarcos = function(clickedBarco) {
-                    $scope.selectedBarco = clickedBarco;
-                    if (clickedBarco == '') {
-                        $scope.filteredItinerarios = $scope.itinerarioss;
-                        $scope.totalItems = $scope.bigCount;
-                    }
-                      else{
-                    
-                        $scope.filteredItinerarios = [];   
-                        $count = 0;
-                      
-                        angular.forEach($scope.itinerarioss, function(itinerario){
-    
-                            if(itinerario.barco == clickedBarco) {
-                                $scope.filteredItinerarios.push(itinerario);
-                                $count = $count + 1 ;
+                      angular.forEach($scope.itinerarioss, function(itinerario){
+                                               
+                            if($scope.selectedBarco == 'Todos' || itinerario.barco == $scope.selectedBarco) {
+                                if($scope.selectedDestino == 'Todos'|| itinerario.destino == $scope.selectedDestino){
+                                    
+                                     $valid = 0;
+                                    
+                                     angular.forEach(itinerario.fechas, function(fecha){
+                                         
+                                        console.log(fecha.fecha);
+                                        console.log($scope.selectedDate);
+                                                              
+                                        if($scope.selectedDate == 'undefined'  || $scope.selectedDate == ''  || fecha.fecha == $scope.selectedDate){
+
+                                            $valid = 1;
+                                        }         
+                                          
+                                    });
+                                    
+                                    if ($valid == 1){
+                                        $scope.filteredItinerarios.push(itinerario);
+                                        count =  count +1; 
+                                    }
+                                }
                             }
-                            $scope.totalItems = $count;                      
+         
+                        });
+                        totalItems = count;                      
                       
-                            });
-                      }
-                  };
+                    };
+   
+                      
+                      
+               $scope.filterbyBarcos = function(clickedBarco) {
+                    $scope.selectedBarco = clickedBarco;
+                    $scope.getFilteredItinerarios();
+                       
+                };
                       
                 $scope.filterbyDestinos = function(clickedDestino) {
                     $scope.selectedDestino = clickedDestino;
+                    $scope.getFilteredItinerarios();
                 };
                       
                       
                 $scope.filterbyDate = function() {
+                    $scope.getFilteredItinerarios();
                     
                 };
                       
