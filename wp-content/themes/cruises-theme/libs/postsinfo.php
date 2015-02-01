@@ -303,7 +303,9 @@ function getItinerariosBarcos() {
      // The Query
     $args = array(
         'post_type' => 'barco',
-        'posts_per_page'=>-1
+        'posts_per_page'=>-1,
+        'orderby' => 'title',
+	    'order'   => 'ASC'
         
     );
     $the_query = new WP_Query( $args );
@@ -331,7 +333,9 @@ function getItinerariosDestinos() {
      // The Query
     $args = array(
         'post_type' => 'destino',
-        'posts_per_page'=>-1
+        'posts_per_page'=>-1,
+        'orderby' => 'title',
+	    'order'   => 'ASC'
         
     );
     $the_query = new WP_Query( $args );
