@@ -130,6 +130,8 @@
                   $scope.currentPage = 1;
                   $scope.itemsPage = 12;
                   $scope.maxSize = 5;   
+                      
+                  $scope.totalItems = $scope.bigCount;
                   
                   $scope.getFilteredItinerarios = function(){
                   
@@ -149,7 +151,7 @@
                                         console.log(fecha.fecha);
                                         console.log($scope.selectedDate);
                                                               
-                                        if($scope.selectedDate == 'undefined'  || $scope.selectedDate == ''  || fecha.fecha == $scope.selectedDate){
+                                        if($scope.selectedDate == 'undefined' ||  $scope.selectedDate == '0001-01-01' || $scope.selectedDate == ''  || fecha.fecha == $scope.selectedDate){
 
                                             $valid = 1;
                                         }         

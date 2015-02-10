@@ -45,7 +45,7 @@
                         <h3><input class="text-field" type= "date" id="fechasalida" placeholder="" ng-change="filterbyDate()" ng-model="selectedDate"/>    </h3>
                     </div>
                     <div id="itinerarios-lista">
-                            <div class="itinerario-detalle" ng-repeat= "itinerario in filteredItinerarios">
+                            <div class="itinerario-detalle" ng-repeat= "itinerario in paginatedItinerarios">
                                 <div class="itinerario-texto">
                                     <h4><span ng-bind="itinerario.nombre"></span></h4>
                                     <p><span ng-bind="itinerario.detalle"></p>
@@ -69,6 +69,5 @@
      </section>
     
 <?php get_template_part( 'partials/-noticias', 'page' ); ?>  
-<?php get_template_part( 'partials/-reserve', 'page' ); ?>
 <?php wp_footer(); // Crucial footer hook! ?>
 <?php get_footer(); ?>

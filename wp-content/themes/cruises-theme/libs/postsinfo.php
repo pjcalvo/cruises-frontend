@@ -48,8 +48,8 @@ function getPromocionesHome() {
             echo '<div class="promocion" id="promocion-' . get_the_ID() . '">';
             echo '<img src="' .types_render_field("imagen", array("output"=>"raw")) . '"/>';
             echo '<h2>' .types_render_field("promocion", array("output"=>"string")) . '</h2>';
-            echo '<div class="detail promo">';
-            echo '<p>' . substr(types_render_field("detalles", array("output"=>"string")),0, 250) . '...' . '</p>';
+            echo '<div class="detail promo text">';
+            echo '<p>' . substr(types_render_field("detalles", array("output"=>"raw")),0, 250) . '...' . '</p>';
             echo '</div>';
             echo '<a class ="btn-primary" href="' . get_permalink() . ' ">';
             echo '<strong>LEER MAS</strong>';
@@ -303,9 +303,10 @@ function getItinerariosBarcos() {
      // The Query
     $args = array(
         'post_type' => 'barco',
-        'posts_per_page'=>-1,
+		'posts_per_page'=>-1,
         'orderby' => 'title',
-	    'order'   => 'ASC'
+        'order'   => 'ASC'
+
         
     );
     $the_query = new WP_Query( $args );
@@ -319,7 +320,7 @@ function getItinerariosBarcos() {
             $the_query->the_post();
                 
                 $count = $count+1;
-                echo '$scope.barcos.push({"nombre":"' . get_the_Title() . '"});';          
+                echo '$scope.barcos.push({"nombre":"' . html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8') . '"});';          
          }
              
         
@@ -335,7 +336,8 @@ function getItinerariosDestinos() {
         'post_type' => 'destino',
         'posts_per_page'=>-1,
         'orderby' => 'title',
-	    'order'   => 'ASC'
+        'order'   => 'ASC'
+
         
     );
     $the_query = new WP_Query( $args );
@@ -349,7 +351,7 @@ function getItinerariosDestinos() {
             $the_query->the_post();
                 
                 $count = $count+1;
-                echo '$scope.destinos.push({"nombre":"' . get_the_Title() . '"});';          
+                echo '$scope.destinos.push({"nombre":"' . html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8') . '"});';          
          }
              
         

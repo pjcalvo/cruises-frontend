@@ -21,7 +21,7 @@
             <div id="nosotros-content" class="extended">
                 <div class="container-fluid">
                     <h1>NOSOTROS</h1>
-                    <p id="nosotros-info" class="multi-line">
+                    <p id="nosotros-info" class="">
                         <?php getPageContent(); ?>
                     </p>                                      
                 </div>
@@ -45,6 +45,5 @@
      </section>
     
 <?php get_template_part( 'partials/-noticias', 'page' ); ?>  
-<?php get_template_part( 'partials/-reserve', 'page' ); ?>
 <?php wp_footer(); // Crucial footer hook! ?>
 <?php get_footer(); ?>
