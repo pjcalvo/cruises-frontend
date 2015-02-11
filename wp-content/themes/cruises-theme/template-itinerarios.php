@@ -64,6 +64,9 @@
                             items-per-page="itemsPage"
                             ng-model="currentPage"></pagination>
                     </div>
+                    <div>
+                        <p></br></br><strong>Todos los itinerarios están sujetos a cambio sin previo aviso. Confirma tu itinerario antes de comprar el crucero. </strong></p>
+                    </div>
                 </div>
             </div>                     
      </section>

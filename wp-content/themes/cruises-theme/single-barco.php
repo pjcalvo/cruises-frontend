@@ -81,7 +81,7 @@
             <div id="barco-content" class="container-fluid">
                <div class="small-container">
                    <h1>{{name}}</h1>
-                   <p class="multi-line">{{detalle}}</p>
+                   <p class="multi-line" ng-bind="detalle"></p>
                 </div>
                 <hr/>
                 <h3 class="small-container">ESCOGE ENTRE NUESTROS DESTINOS</h3>

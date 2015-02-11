@@ -373,7 +373,9 @@ function getDatosBarco() {
     echo '"}];';
     
     echo '$scope.name = "' . get_the_Title() . '";';
-    echo '$scope.detalle = "' . preg_replace("/\r\n|\r|\n/",'\\n',get_the_Content()) . '";';
+    $content = str_replace('&nbsp;'," ",get_the_content());
+    echo '$scope.detalle = "' . preg_replace("/\r\n|\r|\n/",'\n',$content) . '";';
+    
     echo '$scope.heroImage = "'. types_render_field("imagen", array("output"=>"raw")) .'";';
     
     $count = 0;
