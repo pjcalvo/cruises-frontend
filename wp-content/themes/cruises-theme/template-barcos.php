@@ -37,7 +37,7 @@
                     </div>
                     <div id="barcos-lista">
                         <div class="barco-detalle" ng-repeat="barco in paginatedBarcos">
-                            <div class="imagen-crucero">
+                            <div class="imagen-crucero" >
                                 <img src="{{barco.imagen}}"/>
                             </div>
                             <div class="crucero-detalle">
@@ -63,3 +63,60 @@
 <?php get_template_part( 'partials/-noticias', 'page' ); ?>  
 <?php wp_footer(); // Crucial footer hook! ?>
 <?php get_footer(); ?>
+
+<script>
+               angular.module('barcos', ['ui.bootstrap']);
+                  angular.module('barcos').controller('barcoController', function ($scope) {   
+                      
+                  $scope.barcoss = [];       
+                  <?php getListaBarcos(); ?>
+                      
+                  $scope.paginatedBarcos = {};
+                  $scope.filteredBarcos = $scope.barcoss;     
+                  
+                  $scope.totalItems = $scope.bigCount;
+                  $scope.currentPage = 1;
+                  $scope.itemsPage = 10;
+                  $scope.maxSize = 5;
+                      
+                      
+                  $scope.filterBarcos = function(empresa) {
+                    
+                    if (empresa == '') {
+                        $scope.filteredBarcos = $scope.barcoss;
+                        $scope.totalItems = $scope.bigCount;
+                    }
+                      else{
+                    
+                        $scope.filteredBarcos = [];   
+                        $count = 0;
+                      
+                        angular.forEach($scope.barcoss, function(barco){
+    
+                            if(barco.empresa == empresa) {
+                                $scope.filteredBarcos.push(barco);
+                                $count = $count + 1 ;
+                            }
+                            $scope.totalItems = $count;                      
+                      
+                            });
+                      }
+                  };
+                      
+                  $scope.setPage = function (pageNo) {
+                    $scope.currentPage = pageNo;
+                  };
+                      
+                  $scope.$watch('currentPage + filteredBarcos', function() {
+                        var begin = (($scope.currentPage - 1) * $scope.itemsPage)
+                        , end = begin + $scope.itemsPage;
+
+                        $scope.paginatedBarcos = $scope.filteredBarcos.slice(begin, end);
+                  });    
+                
+
+    
+                });
+
+        
+        </script>

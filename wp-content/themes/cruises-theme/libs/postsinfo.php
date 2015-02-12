@@ -17,7 +17,7 @@ function getNovedadesByEmpresa($empresa, $count) {
             $iterator = $iterator + 1;
             $the_query->the_post();
             echo '<div class="novedad-detail col-xs-3" id="novedad-' . get_the_ID() . '">';
-            echo '<img src="' .types_render_field("imagen", array("output"=>"raw")) . '"/>';
+            echo  types_render_field("imagen", array('size' => 'promociones-thumb'));
             echo '<h2>' .types_render_field("destino", array("output"=>"string")) . '</h2>';
             echo '<h3>EMPEZANDO</h3>';
             echo '<h4>' .types_render_field("precio", array("output"=>"string")) . '</h4>';
@@ -46,7 +46,7 @@ function getPromocionesHome() {
         while ( $the_query->have_posts()) {
             $the_query->the_post();
             echo '<div class="promocion" id="promocion-' . get_the_ID() . '">';
-            echo '<img src="' .types_render_field("imagen", array("output"=>"raw")) . '"/>';
+            echo types_render_field("imagen", array('size' => 'promociones-thumb'));
             echo '<h2>' .types_render_field("promocion", array("output"=>"string")) . '</h2>';
             echo '<div class="detail promo text">';
             echo '<p>' . substr(types_render_field("detalles", array("output"=>"raw")),0, 250) . '...' . '</p>';
@@ -142,7 +142,10 @@ function getDestinosDestinos() {
      // The Query
     $args = array(
         'post_type' => 'destino',
-        'posts_per_page'=>-1
+        		'posts_per_page'=>-1,
+        'orderby' => 'title',
+        'order'   => 'ASC'
+
         
     );
     $the_query = new WP_Query( $args );

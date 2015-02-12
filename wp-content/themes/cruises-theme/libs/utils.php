@@ -15,4 +15,7 @@ function populatePeopleAmount($amount, $people){
     
 }
 
+add_theme_support( 'post-thumbnails' );
+add_image_size( 'promociones-thumb', 300 );
+
 ?>
