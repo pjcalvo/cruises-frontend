@@ -40,6 +40,7 @@
 						<li><img src="/img/logo-cruceros.png" alt="Cruseros"></li>
 					</ul>
                     <p class="countries">Costa Rica - Nicaragua - Honduras - El Salvador - Belice - IR</p>
+                    <p><strong>Tel. (506) 2234-1818</strong></p>
 			</div>			
 				<div id= "menu-header" class="header-container extended">
                     <div class="container-fluid navbar-container">

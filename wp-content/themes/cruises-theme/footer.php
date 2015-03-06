@@ -16,7 +16,7 @@
                         <img src="/img/icons/icon-phone.png">
                         <p>(506) 2234-1818</br></br></p> 
                         <img src="/img/icons/icon-email.png">
-                        <p>info@crucero.com</p>  
+<a href="mailto:info@crucero.com?Subject=Consulta%20a%20ViajeCrucero" target="_top"><p>info@crucero.com</p></a> 
                     </div>
                     <div class="footer-content col-xs-3">
                         <img src="/img/icons/icon-phone2.png">

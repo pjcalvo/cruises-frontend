@@ -159,9 +159,11 @@ function getDestinosDestinos() {
             $terms = get_the_terms( get_the_ID(), 'region' );
             $slug = '';
             
-            foreach ( $terms as $term ) {
-		          $slug = $term->name;
-	        }
+            if ($terms != NULL){
+                foreach ( $terms as $term ) {
+                    $slug = $term->name;
+	           }
+            }
             
             echo '<div ng-show = "destino== \'\' || destino==\'' . $slug .'\'" class = "col-xs-1 col-sm-4" id="destino-' . get_the_ID() . '">';
             echo '<a href="' . get_permalink() . '"><img class="destino-thumbnail" src = "' .types_render_field("imagen", array("output"=>"raw")) . '" alt="Destino"></a>';
@@ -517,7 +519,7 @@ function getDatosItinerario() {
     echo '<p class="multiline"><Strong>No Incluido: </Strong>';
     echo $ItinerarioNoIncluido;
     echo '</div>';   echo '</div>';    
-    echo '<div class="fechas-salida small-container"> <ul>Fechas de salida:';
+    echo '<div class="fechas-salida small-container">Fechas de salida: <ul>';
     echo $FechasSalida;
     echo '</ul> </div>';
     echo '</div>'; 

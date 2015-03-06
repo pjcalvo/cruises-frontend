@@ -23,17 +23,35 @@
                     </p>
                     <div id="barcos-categorias">
                         <h3>NUESTROS CRUCEROS</h3>
-                        <div class="dropdown">
+                        <div class="companies-area container-fluid">
+                            <ul>
+                                <li ng-class="{active: empresa == 'Royal Caribbean'}" ng-click="filterBarcos('Royal Caribbean')" id="company1">
+                                    <a href=""></a>
+                                </li>
+                                <li ng-class="{active: empresa == 'Azamara Club Cruises'}" ng-click="filterBarcos('Azamara Club Cruises')" id="company2">
+                                    <a href=""></a>
+                                </li>
+                                <li ng-class="{active: empresa == 'Celebrity Cruises'}" ng-click="filterBarcos('Celebrity Cruises')" id="company3">
+                                    <a href=""></a>
+                                </li>
+                                <li ng-class="{active: empresa == 'Pullmantur'}" ng-click="filterBarcos('Pullmantur')" id="company4">
+                                    <a href=""></a>
+                                </li>            
+                            </ul>
+                        </div>
+                        <!--<div class="dropdown">
                           <button class="btn btn-default dropdown-toggle" type="button" id="dropdown-barcos" data-toggle="menu">
                             Todos
                             <span class="caret"></span>
                           </button>
+                            
+                            
                           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-barcos">
                             <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="filterBarcos('')">Todos</a></li>
                             <?php getEmpresasBarcos(); ?>
-        
+                            
                           </ul>
-                        </div>
+                        </div>-->
                     </div>
                     <div id="barcos-lista">
                         <div class="barco-detalle" ng-repeat="barco in paginatedBarcos">
@@ -79,8 +97,13 @@
                   $scope.itemsPage = 10;
                   $scope.maxSize = 5;
                       
+                  $scope.empresa = 'Todos';
+                      
                       
                   $scope.filterBarcos = function(empresa) {
+                      
+                    $scope.empresa = empresa;  
+                    
                     
                     if (empresa == '') {
                         $scope.filteredBarcos = $scope.barcoss;
