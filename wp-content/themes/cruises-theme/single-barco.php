@@ -5,48 +5,7 @@
 ?>
 
 <?php get_template_part( 'header', 'page' ); ?>
- <script>
-                 
-                  angular.module('barco', ['ui.bootstrap']);
-                  angular.module('barco').controller('barco-controller', function ($scope) {   
-                      
-                  $scope.destinoss = []; 
-                  $scope.destinosCount = 0;
-                  $scope.imagesInterior = [];
-                  $scope.imagesExterior = [];
-                  $scope.name ="";
-                  $scope.detalle ="";                                
-                      
-                  <?php getDatosBarco(); ?>      
-                                       
-                  $scope.paginatedDestinos = [];     
-                  
-                  $scope.currentPage = 1;
-                  $scope.itemsPage = 6;
-                  $scope.maxSize = 0;
-                      
-                      
-                  $scope.setHeroImage = function($imagen) {
-                      $scope.heroImage = $imagen;                     
-                  };
-                      
-                  $scope.setPage = function (pageNo) {
-                    $scope.currentPage = pageNo;
-                  };
-                      
-                  $scope.$watch('currentPage + filteredBarcos', function() {
-                        var begin = (($scope.currentPage - 1) * $scope.itemsPage)
-                        , end = begin + $scope.itemsPage;
-
-                        $scope.paginatedDestinos = $scope.destinoss.slice(begin, end);
-                  });    
-                
-
-    
-                });
-
-        
-        </script>
+ 
 <div ng-app="barco" ng-controller="barco-controller">
     <section class="content">
             <div id="barco-hero" class="small-container">
@@ -113,3 +72,44 @@
 <?php get_template_part( 'partials/-noticias', 'page' ); ?>  
 <?php wp_footer(); // Crucial footer hook! ?>
 <?php get_footer(); ?>
+<script>
+                 
+                  angular.module('barco', ['ui.bootstrap']);
+                  angular.module('barco').controller('barco-controller', function ($scope) {   
+                      
+                  $scope.destinoss = []; 
+                  $scope.destinosCount = 0;
+                  $scope.imagesInterior = [];
+                  $scope.imagesExterior = [];
+                  $scope.name ="";
+                  $scope.detalle ="";                                
+                      
+                  <?php getDatosBarco(); ?>      
+                                       
+                  $scope.paginatedDestinos = [];     
+                  
+                  $scope.currentPage = 1;
+                  $scope.itemsPage = 6;
+                  $scope.maxSize = 0;
+                      
+                      
+                  $scope.setHeroImage = function($imagen) {
+                      $scope.heroImage = $imagen;                     
+                  };
+                      
+                  $scope.setPage = function (pageNo) {
+                    $scope.currentPage = pageNo;
+                  };
+                      
+                  $scope.$watch('currentPage + filteredBarcos', function() {
+                        var begin = (($scope.currentPage - 1) * $scope.itemsPage)
+                        , end = begin + $scope.itemsPage;
+
+                        $scope.paginatedDestinos = $scope.destinoss.slice(begin, end);
+                  });    
+                
+
+    
+                });
+
+</script>

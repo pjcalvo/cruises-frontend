@@ -451,7 +451,7 @@ function getDatosItinerario() {
     $ItinerarioIncluido = types_render_field("incluido", array("output"=>"raw"));
     $ItinerarioNoIncluido = types_render_field("noincluido", array("output"=>"raw"));
     $FechasSalida = '<li>';
-    $FechasSalida = $FechasSalida . types_render_field("fecha-salida",   array("output"=>"normal","format" => "d \d\\e M, Y", "separator"=>'</li><li>'));
+    $FechasSalida = $FechasSalida . types_render_field("fecha-salida",   array("output"=>"normal","format" => "d M Y", "separator"=>'</li><li>'));
     $FechasSalida = $FechasSalida . '</>';
     
      $BarcoTitle = '';

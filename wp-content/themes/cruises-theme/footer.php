@@ -84,7 +84,7 @@
         
         <script>
                   angular.module('itinerarios', ['ui.bootstrap']);
-                  angular.module('itinerarios').controller('itinerarioController', function ($scope) {   
+                  angular.module('itinerarios').controller('itinerarioController', function ($scope,$filter) {   
                       
                   $scope.itinerarioss = [];
                   $scope.barcos = [];
@@ -97,8 +97,6 @@
                   $scope.destinos.push({"nombre":"Todos"});               
                   <?php getItinerariosDestinos(); ?>
                       
-                  $scope.selectedDate = "0001-01-01";
-                      
                  <?php getListaItinerarios(); ?>
                       
                   $scope.paginatedItinerarios = {};
@@ -108,7 +106,24 @@
                   $scope.currentPage = 1;
                   $scope.itemsPage = 12;
                   $scope.maxSize = 5;   
+                  $scope.dt = Date.now();
+                  $scope.selectedDate = '';
                       
+                  $scope.open = function($event) {
+                    $event.preventDefault();
+                    $event.stopPropagation();
+
+                    $scope.opened = true;
+                  };
+
+                  $scope.dateOptions = {
+                    formatYear: 'yy',
+                    startingDay: 1
+                  };
+
+                  $scope.formats = ['dd-MM-yyyy'];
+                  $scope.format = $scope.formats[0];
+
                   $scope.totalItems = $scope.bigCount;
                   
                   $scope.getFilteredItinerarios = function(){
@@ -149,12 +164,21 @@
                     };
    
                       
+               $scope.clearFilter = function(clickedBarco) {
+                    $scope.selectedBarco = "Todos";
+                    $scope.selectedDestino = "Todos";
+                    $scope.selectedDate = '';
+                    $scope.filteredItinerarios = $scope.itinerarioss;
+                       
+                };           
                       
                $scope.filterbyBarcos = function(clickedBarco) {
                     $scope.selectedBarco = clickedBarco;
                     $scope.getFilteredItinerarios();
                        
                 };
+                      
+                      
                       
                 $scope.filterbyDestinos = function(clickedDestino) {
                     $scope.selectedDestino = clickedDestino;
@@ -163,6 +187,7 @@
                       
                       
                 $scope.filterbyDate = function() {
+                    $scope.selectedDate = $filter('date')($scope.dt, "yyyy-MM-dd");
                     $scope.getFilteredItinerarios();
                     
                 };

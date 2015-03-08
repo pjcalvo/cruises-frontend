@@ -22,27 +22,45 @@
                     <p class="multi-line"><?php getPageContent(); ?>
                     </p>
                     <div id="itinerario-categorias">
-                        <h3>CRUCEROS</h3>
-                        <div class="dropdown">
-                          <button class="btn btn-default dropdown-toggle dropdown-itinerario" type="button" id="dropdown-barcos" data-toggle="menu">
-                            <span ng-bind="selectedBarco"></span>
-                            <span class="caret"></span>
-                          </button>
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-itin">
-                            <li role="presentation" ng-repeat="barco in barcos"><a role="menuitem" tabindex="-1" ng-click="filterbyBarcos(barco.nombre)">{{barco.nombre}}</a></li>
-                          </ul>
+                        <div class="col-xs-3">
+                            <h3>Barco</h3>
+                            <div class="dropdown">
+                              <button class="btn btn-default dropdown-toggle dropdown-itinerario" type="button" id="dropdown-barcos" data-toggle="menu">
+                                <span ng-bind="selectedBarco"></span>
+                                <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-itin">
+                                <li role="presentation" ng-repeat="barco in barcos"><a role="menuitem" tabindex="-1" ng-click="filterbyBarcos(barco.nombre)">{{barco.nombre}}</a></li>
+                              </ul>
+                            </div>
+                        </div>  
+                        <div class="col-xs-3">
+                            <h3>Destino</h3>
+                            <div class="dropdown">
+                              <button class="btn btn-default dropdown-toggle dropdown-itinerario" type="button" id="dropdown-destinos" data-toggle="menu">
+                                <span ng-bind="selectedDestino"></span>
+                                <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-destinos">
+                                <li role="presentation" ng-repeat="destino in destinos"><a role="menuitem" tabindex="-1" ng-click="filterbyDestinos(destino.nombre)">{{destino.nombre}}</a></li>
+                              </ul>
+                            </div>
                         </div>
-                        <h3>DESTINO</h3>
-                        <div class="dropdown">
-                          <button class="btn btn-default dropdown-toggle dropdown-itinerario" type="button" id="dropdown-destinos" data-toggle="menu">
-                            <span ng-bind="selectedDestino"></span>
-                            <span class="caret"></span>
-                          </button>
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-destinos">
-                            <li role="presentation" ng-repeat="destino in destinos"><a role="menuitem" tabindex="-1" ng-click="filterbyDestinos(destino.nombre)">{{destino.nombre}}</a></li>
-                          </ul>
+                        <div class="col-xs-3">
+                            <h3>Fecha de Salida</h3>
+                            <div><p class="input-group">
+                                  <input type="text" ng-change="filterbyDate()" class="dropdown dropdown-itenerario form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                  <span class="input-group-btn">
+                                    <button type="button" class="btn-calendar btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                  </span>
+                                </p>
+                            </div>
                         </div>
-                        <h3><input class="text-field" type= "date" id="fechasalida" placeholder="" ng-change="filterbyDate()" ng-model="selectedDate"/>    </h3>
+                        <div class="col-xs-3 btn-limpiar">
+                            <button type="button" class="btn" ng-click="clearFilter()">
+                                Limpiar
+                            </button>
+                        </div>
                     </div>
                     <div id="itinerarios-lista">
                             <div class="itinerario-detalle" ng-repeat= "itinerario in paginatedItinerarios">
