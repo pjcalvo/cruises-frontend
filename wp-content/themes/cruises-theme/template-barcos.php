@@ -25,13 +25,13 @@
                         <h3>NUESTROS CRUCEROS</h3>
                         <div class="companies-area container-fluid">
                             <ul>
-                                <li ng-class="{active: empresa == 'Azamara Club Cruises'}" ng-click="filterBarcos('Royal Caribbean')" id="company1">
+                                <li ng-class="{active: empresa == 'Azamara Club Cruises'}" ng-click="filterBarcos('Azamara Club Cruises')" id="company1">
                                     <a href=""></a>
                                 </li>
-                                <li ng-class="{active: empresa == 'Celebrity Cruises'}" ng-click="filterBarcos('Azamara Club Cruises')" id="company2">
+                                <li ng-class="{active: empresa == 'Celebrity Cruises'}" ng-click="filterBarcos('Celebrity Cruises')" id="company2">
                                     <a href=""></a>
                                 </li>
-                                <li ng-class="{active: empresa == 'Royal Caribbean'}" ng-click="filterBarcos('Celebrity Cruises')" id="company3">
+                                <li ng-class="{active: empresa == 'Royal Caribbean'}" ng-click="filterBarcos('Royal Caribbean')" id="company3">
                                     <a href=""></a>
                                 </li>
                                 <li ng-class="{active: empresa == 'Pullmantur'}" ng-click="filterBarcos('Pullmantur')" id="company4">
