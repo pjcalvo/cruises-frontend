@@ -113,7 +113,7 @@ function getNoticiasHome() {
             echo '</div>';
             echo '<div class="content-area">';
             echo '<h2>' . get_the_Title() . '</h2>';
-            echo '<p>' . get_the_content() . '</p>';
+            echo '<p>' . substr_replace(get_the_content(),"...", 137) . '</p>';
             echo '</div> </div> </div>';
            
          }                          
@@ -167,7 +167,7 @@ function getDestinosDestinos() {
             
             echo '<div ng-show = "destino== \'\' || destino==\'' . $slug .'\'" class = "col-xs-1 col-sm-4" id="destino-' . get_the_ID() . '">';
             echo '<a href="' . get_permalink() . '"><img class="destino-thumbnail" src = "' .types_render_field("imagen", array("output"=>"raw")) . '" alt="Destino"></a>';
-            echo '<h3 class="destino-name">'. get_the_Title() .'</h3>';
+            echo '<h3 class="destino-name">'. html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8') .'</h3>';
             echo '</div>';
          }                          
     } 
@@ -395,7 +395,7 @@ function getDatosBarco() {
      while ( $destinos->have_posts()) {
          $destinos->the_post();
          
-         echo '$scope.destinoss.push({"nombre":"' . $destino.get_the_title() . '", "imagen":"' .types_render_field("imagen", array("output"=>"raw")) . '", "link": "' . get_permalink() . '"});';
+         echo '$scope.destinoss.push({"nombre":"' . html_entity_decode($destino.get_the_title(), ENT_COMPAT, 'UTF-8') . '", "imagen":"' .types_render_field("imagen", array("output"=>"raw")) . '", "link": "' . get_permalink() . '"});';
          
          $count = $count +1;
          

@@ -26,7 +26,7 @@
                         <div class="form-row">
                             <div class="form-field float-left field-300">
                                     <p>TIPO DE HABITACION DEL CRUCERO</p>
-                                    <input class="text-field flat" type= "text" id="fechasalida" placeholder="mm/dd/aaaa"/>    
+                                    <input class="text-field flat" type= "text" id="fechasalida" placeholder="Habitacion"/>    
                              </div>
                         </div>
                         <div class="form-field float-left field-300">

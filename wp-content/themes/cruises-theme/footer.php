@@ -24,6 +24,7 @@
                         <ul>Siganos en:
                             <li><a class="facebook" href="http://facebook.com"></a></li>
                             <li class="twitter"><a href="http://twitter.com"></a></li>
+                            <li class="instagram"><a href="http://instagram.com/royalcari_centroamerica/"></a></li>                        
                         </ul>
                     </div>
                 </div>
