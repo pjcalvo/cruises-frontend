@@ -450,9 +450,54 @@ function getDatosItinerario() {
     $ItinerarioContent = get_the_Content();
     $ItinerarioIncluido = types_render_field("incluido", array("output"=>"raw"));
     $ItinerarioNoIncluido = types_render_field("noincluido", array("output"=>"raw"));
-    $FechasSalida = '<li>';
-    $FechasSalida = $FechasSalida . types_render_field("fecha-salida",   array("output"=>"normal","format" => "d M Y", "separator"=>'</li><li>'));
-    $FechasSalida = $FechasSalida . '</>';
+    
+    $FechasSalida = types_render_field("fecha-salida",   array("output"=>"normal","format" => "Yd M", "separator"=>'  '));
+    $FechasSalidas = explode('  ', $FechasSalida);
+    sort($FechasSalida);
+    
+    $FechasSalida = '';
+    
+    $A2014 = '';
+    $A2015 = '';
+    $A2016 = '';
+    $A2017 = '';
+    
+    foreach($FechasSalidas as $fecha){
+        $anio = substr ($fecha,0,4);
+        $diames = substr ($fecha,4);
+        if ($anio == '2014'){
+            $A2014 = $A2014 . '<li>' . $diames . '</li>';
+        }
+        if ($anio == '2015'){
+            $A2015 = $A2015 . '<li>' . $diames . '</li>';
+        }
+        if ($anio == '2016'){
+            $A2016 = $A2016 . '<li>' . $diames . '</li>';
+        }
+        if ($anio == '2017'){
+            $A2017 = $A2017 . '<li>' . $diames . '</li>';
+        }
+    }
+    
+    if ($A2014 != ''){
+        $FechasSalida = 
+            '<div class="fechas-salida small-container">Fechas 2014: <ul>' . $A2014 . '</ul></div>';
+    }
+    
+     if ($A2015 != ''){
+        $FechasSalida = $FechasSalida .
+            '<div class="fechas-salida small-container">Fechas 2015: <ul>' . $A2015 . '</ul></div>';
+    }
+    
+    if ($A2016 != ''){
+        $FechasSalida = $FechasSalida .
+            '<div class="fechas-salida small-container">Fechas 2016: <ul>' . $A2016 . '</ul></div>';
+    }
+    
+    if ($A2017 != ''){
+        $FechasSalida = $FechasSalida .
+            '<div class="fechas-salida small-container">Fechas 2017: <ul>' . $A2017 . '</ul></div>';
+    }
     
      $BarcoTitle = '';
      $BarcoImage = '';
@@ -519,9 +564,9 @@ function getDatosItinerario() {
     echo '<p class="multiline"><Strong>No Incluido: </Strong>';
     echo $ItinerarioNoIncluido;
     echo '</div>';   echo '</div>';    
-    echo '<div class="fechas-salida small-container">Fechas de salida: <ul>';
+    
     echo $FechasSalida;
-    echo '</ul> </div>';
+
     echo '</div>'; 
     echo '</section>';
     

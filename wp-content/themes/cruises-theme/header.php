@@ -30,9 +30,10 @@
             );
         
         </script>-->
-        
+    
+        <?php include_once("partials/analyticstracking.php") ?>
 	</head>
-	<body>
+	<body>    
 		<header>
             <div class="fixed-header">
 			<div class="container-fluid top-head">

@@ -22,8 +22,8 @@
                         <img src="/img/icons/icon-phone2.png">
                         <p>(506) 2283-7878</br></br></p>
                         <ul>Siganos en:
-                            <li><a class="facebook" href="http://facebook.com"></a></li>
-                            <li class="twitter"><a href="http://twitter.com"></a></li>
+                            <li><a class="facebook" href="https://www.facebook.com/RoyalCaribbeanCentroamerica"></a></li>
+                            <li class="twitter"><a href="http://twitter.com/royalcari"></a></li>
                             <li class="instagram"><a href="http://instagram.com/royalcari_centroamerica/"></a></li>                        
                         </ul>
                     </div>
