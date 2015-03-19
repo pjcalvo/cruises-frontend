@@ -100,7 +100,7 @@
 
               <!-- Wrapper for slides -->
               <div class="carousel-inner heigh100">
-                <div class="item active slide1 heigh100">
+                <div class="item active slide1 container-fluid heigh100">
                   <img src="" alt="">
                       <div class="carousel-caption container-fluid">
                         <div class="novedad-title">
@@ -114,7 +114,7 @@
                         </div>
                   </div>
                 </div>
-                <div class="item slide2 heigh100">
+                <div class="item slide2 container-fluid heigh100">
                   <img src="" alt="">
                   <div class="carousel-caption container-fluid">
                         <div class="novedad-title">
@@ -128,7 +128,7 @@
                         </div>
                   </div>
                 </div>
-                <div class="item slide3 heigh100">
+                <div class="item slide3 container-fluid heigh100">
                   <img src="" alt="">
                   <div class="carousel-caption container-fluid">
                         <div class="novedad-title">
@@ -142,7 +142,7 @@
                         </div>
                   </div>
                 </div>
-                <div class="item slide4 heigh100">
+                <div class="item slide4 container-fluid heigh100">
                   <img src="" alt="">
                   <div class="carousel-caption container-fluid">
                         <div class="novedad-title">

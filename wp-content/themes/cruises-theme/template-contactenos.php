@@ -17,9 +17,10 @@
             <div id="nosotros-content" class="extended">
                 <div class="container-fluid">
                     <h1>NOSOTROS</h1>
-                    <p id="nosotros-info" class="">
+                    <p id="nosotros-info" class="multi-line">
                         <?php getPageContent(); ?>
-                    </p>                                      
+                    </p>
+                    <img id="gsa-logo" src="/img/icons/gsa-logo.jpg"/>
                 </div>
             </div>                     
      </section>

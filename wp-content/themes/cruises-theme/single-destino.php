@@ -13,7 +13,7 @@
                     <form id= "form-fields">
                          <div class="form-row">
                              <div class="form-field float-left field-300">
-                                    <p>NUMERO DE PERSONAS</p>
+                                    <p>NOMBRE DE CLIENTE</p>
                                     <input class="text-field flat" type="text" id="names" placeholder="John Smith" required/>    
                                 </div>
                         </div>     
@@ -25,13 +25,13 @@
                         </div>
                         <div class="form-row">
                             <div class="form-field float-left field-300">
-                                    <p>TIPO DE HABITACION DEL CRUCERO</p>
-                                    <input class="text-field flat" type= "text" id="fechasalida" placeholder="Habitacion"/>    
+                                    <p>TIPO DE HABITACIÓN DEL CRUCERO</p>
+                                    <input class="text-field flat" type= "text" id="fechasalida" placeholder="Habitación"/>    
                              </div>
                         </div>
                         <div class="form-field float-left field-300">
-                                <p>NOMBRE DEL CLIENTE</p>
-                                <input class="text-field flat" type= "text" id="fechasalida" placeholder="Nombre del Cliente"/>    
+                                <p>NÚMERO DE PASAJEROS</p>
+                                <input class="text-field flat" type= "text" id="fechasalida" placeholder="2"/>    
                          </div>
                          <div class="form-row">
                              <div class="form-field float-left field-100">
@@ -43,12 +43,12 @@
                         </div>
                         <div class="form-row">
                              <div class="form-field float-left field-300">
-                                    <p>CORREO ELECTRONICO</p>
-                                    <input class="text-field flat" type= "text" id="fechasalida" placeholder="Correo Electronico"/>    
+                                    <p>CORREO ELECTRÓNICO</p>
+                                    <input class="text-field flat" type= "text" id="fechasalida" placeholder="Correo Electrónico"/>    
                              </div>
                              <div class="form-field float-left field-300">
-                                    <p>TELEFONO</p>
-                                    <input class="text-field flat" type= "text" id="fechasalida" placeholder="Telefono"/>    
+                                    <p>TELÉFONO</p>
+                                    <input class="text-field flat" type= "text" id="fechasalida" placeholder="Teléfono"/>    
                              </div>
                              <div class="form-field float-left field-300">
                                     <p>FAX</p>
@@ -57,8 +57,8 @@
                         </div>
                         <div class="form-row">
                              <div class="form-field float-left field-300">
-                                    <p>PAIS</p>
-                                    <input class="text-field flat" type= "text" id="fechasalida" placeholder="Pais"/>    
+                                    <p>PAÍS</p>
+                                    <input class="text-field flat" type= "text" id="fechasalida" placeholder="País"/>    
                              </div>
                             <div class="form-field float-left field-300">
                                     <p>APARTADO POSTAL</p>
@@ -68,7 +68,7 @@
                         <div class="form-row">
                              <div class="form-field comment-field">
                                     <p>COMENTARIOS</p>
-                                    <textarea  cols="40" rows="5" class="text-field" id="comentarios" placeholder="Comentarios" required></textarea>    
+                                    <textarea  cols="40" rows="5" class="text-field" id="comentarios" placeholder="Por favor indicar toda la información que usted necesita" required></textarea>    
                              </div>
                         </div>
                          <div class="form-row">

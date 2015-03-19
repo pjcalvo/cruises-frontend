@@ -1,3 +1,3 @@
 <a class ="btn-primary" href="" data-toggle="modal" data-target="#myModal">
-                                APROVECHA <strong>RESERVA AHORA</strong>
+                                APROVECHA <strong>Y RESERVA AHORA</strong>
 </a>

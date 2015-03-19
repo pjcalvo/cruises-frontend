@@ -453,7 +453,7 @@ function getDatosItinerario() {
     
     $FechasSalida = types_render_field("fecha-salida",   array("output"=>"normal","format" => "Yd M", "separator"=>'  '));
     $FechasSalidas = explode('  ', $FechasSalida);
-    sort($FechasSalida);
+    
     
     $FechasSalida = '';
     
@@ -597,7 +597,7 @@ function getDatosItinerario() {
     }
     
     echo '</div>';
-    echo '<h2>MAPA***</h2>';
+    echo '<h2>MAPA</h2>';
     echo '<img class="itinerario-mapa" src ="'. $ItinerarioMapa.'" />';
     
     echo '</div>'; echo '</div>'; echo '</section>';

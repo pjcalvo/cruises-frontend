@@ -7,9 +7,9 @@
                     <div class="footer-content col-xs-5">
                         <img src="/img/icons/icon-location.png">
                         <p>100 Este, 25 Sur</br>
-                    Banco Popular Contiguo Banco Cathay</br>
-                    San Pedro de Montes de Oca San José</br>
-                    Costa Rica
+                     del Banco Popular Contiguo Banco Cathay,</br>
+                    San Pedro de Montes de Oca, San José,</br>
+                    Costa Rica.
                         </p> 
                     </div>
                     <div class="footer-content col-xs-4">
@@ -81,135 +81,6 @@
              });         
         </script>
         
-        
-        
-        <script>
-                  angular.module('itinerarios', ['ui.bootstrap']);
-                  angular.module('itinerarios').controller('itinerarioController', function ($scope,$filter) {   
-                      
-                  $scope.itinerarioss = [];
-                  $scope.barcos = [];
-                  $scope.selectedBarco = "Todos";             
-                  $scope.barcos.push({"nombre":"Todos"});               
-                  <?php getItinerariosBarcos(); ?>
-                  
-                  $scope.destinos = [];
-                  $scope.selectedDestino = "Todos";             
-                  $scope.destinos.push({"nombre":"Todos"});               
-                  <?php getItinerariosDestinos(); ?>
-                      
-                 <?php getListaItinerarios(); ?>
-                      
-                  $scope.paginatedItinerarios = {};
-                  $scope.filteredItinerarios = $scope.itinerarioss;     
-                  
-                  $scope.totalItems = 3;
-                  $scope.currentPage = 1;
-                  $scope.itemsPage = 12;
-                  $scope.maxSize = 5;   
-                  $scope.dt = Date.now();
-                  $scope.selectedDate = '';
-                      
-                  $scope.open = function($event) {
-                    $event.preventDefault();
-                    $event.stopPropagation();
-
-                    $scope.opened = true;
-                  };
-
-                  $scope.dateOptions = {
-                    formatYear: 'yy',
-                    startingDay: 1
-                  };
-
-                  $scope.formats = ['dd-MM-yyyy'];
-                  $scope.format = $scope.formats[0];
-
-                  $scope.totalItems = $scope.bigCount;
-                  
-                  $scope.getFilteredItinerarios = function(){
-                  
-                      $scope.filteredItinerarios = [];   
-                      count = 0;
-                      
-                      
-                      angular.forEach($scope.itinerarioss, function(itinerario){
-                                               
-                            if($scope.selectedBarco == 'Todos' || itinerario.barco == $scope.selectedBarco) {
-                                if($scope.selectedDestino == 'Todos'|| itinerario.destino == $scope.selectedDestino){
-                                    
-                                     $valid = 0;
-                                    
-                                     angular.forEach(itinerario.fechas, function(fecha){
-                                         
-                                        console.log(fecha.fecha);
-                                        console.log($scope.selectedDate);
-                                                              
-                                        if($scope.selectedDate == 'undefined' ||  $scope.selectedDate == '0001-01-01' || $scope.selectedDate == ''  || fecha.fecha == $scope.selectedDate){
-
-                                            $valid = 1;
-                                        }         
-                                          
-                                    });
-                                    
-                                    if ($valid == 1){
-                                        $scope.filteredItinerarios.push(itinerario);
-                                        count =  count +1; 
-                                    }
-                                }
-                            }
-         
-                        });
-                        totalItems = count;                      
-                      
-                    };
-   
-                      
-               $scope.clearFilter = function(clickedBarco) {
-                    $scope.selectedBarco = "Todos";
-                    $scope.selectedDestino = "Todos";
-                    $scope.selectedDate = '';
-                    $scope.filteredItinerarios = $scope.itinerarioss;
-                       
-                };           
-                      
-               $scope.filterbyBarcos = function(clickedBarco) {
-                    $scope.selectedBarco = clickedBarco;
-                    $scope.getFilteredItinerarios();
-                       
-                };
-                      
-                      
-                      
-                $scope.filterbyDestinos = function(clickedDestino) {
-                    $scope.selectedDestino = clickedDestino;
-                    $scope.getFilteredItinerarios();
-                };
-                      
-                      
-                $scope.filterbyDate = function() {
-                    $scope.selectedDate = $filter('date')($scope.dt, "yyyy-MM-dd");
-                    $scope.getFilteredItinerarios();
-                    
-                };
-                      
-                  $scope.setPage = function (pageNo) {
-                    $scope.currentPage = pageNo;
-                  };
-                      
-                  $scope.$watch('currentPage + filteredItinerarios', function() {
-                        var begin = (($scope.currentPage - 1) * $scope.itemsPage)
-                        , end = begin + $scope.itemsPage;
-
-                        $scope.paginatedItinerarios = $scope.filteredItinerarios.slice(begin, end);
-                  });    
-                
-
-    
-                });
-
-        
-        </script> 
         
 
             <script>
