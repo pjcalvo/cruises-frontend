@@ -56,7 +56,7 @@
                     </br></br>
                     Desde la belleza escapada de Alaska, Canadá y Nueva Inglaterra hasta el encanto de Europa y los exhuberantes paisajes
                     de México, Hawái, el Caribe, el Canal de Panamá, Bermudas y las Bahamas.</p>
-                    <a class ="btn-primary" href="\destinos\">
+                    <a class ="btn-primary" href="/destinos/">
                                 DESCUBRE LOS <strong>DESTINOS</strong>
                     </a>
                 </div>
