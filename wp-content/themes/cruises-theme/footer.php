@@ -16,7 +16,7 @@
                         <img src="/img/icons/icon-phone.png">
                         <p>(506) 2234-1818</br></br></p> 
                         <img src="/img/icons/icon-email.png">
-<a href="mailto:info@crucero.com?Subject=Consulta%20a%20ViajeCrucero" target="_top"><p>info@crucero.com</p></a> 
+<a href="mailto:info@crucero.com?Subject=Consulta%20a%20ViajeCrucero" target="_top"><p>info@viajecrucero.com</p></a> 
                     </div>
                     <div class="footer-content col-xs-3">
                         <img src="/img/icons/icon-phone2.png">
@@ -54,11 +54,6 @@
         <script
                 src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
         </script>
-        <script src="/js/vendor/angular.js"></script>
-        <script src="/js/vendor/jquery-1.11.1.js"></script>
-        <script src="/js/vendor/bootstrap.js"></script>
-        <script src="/js/vendor/ui-bootstrap-tpls-0.11.2.js"></script>
-
 
         <script>
             angular.module('contactApp', [])

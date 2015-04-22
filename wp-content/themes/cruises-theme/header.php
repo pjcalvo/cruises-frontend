@@ -9,6 +9,11 @@
 
         <link rel="stylesheet" href="/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/css/main.min.css">
+        
+        <script src="/js/vendor/angular.js"></script>
+        <script src="/js/vendor/jquery-1.11.1.js"></script>
+        <script src="/js/vendor/bootstrap.js"></script>
+        <script src="/js/vendor/ui-bootstrap-tpls-0.11.2.js"></script>
 
 		<!--[if lt IE 9]>
 			<script src="js/vendor/respond.js"></script>
