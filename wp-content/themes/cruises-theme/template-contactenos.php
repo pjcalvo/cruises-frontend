@@ -108,7 +108,7 @@
                             </div>
                             
                              <div class="form-field button-field center-field">
-                                <input class="text-field btn-submit" type="submit" id="fecharegreso" value="ENVIAR CONSULTA"/>    
+                                <input class="text-field btn-submit" type="submit" id="" value="ENVIAR CONSULTA"/>    
                             </div>
                             <?php include "libs/contact-mail.php"?>
                         </div>

@@ -426,9 +426,11 @@ function getDestinoDetalles() {
     echo '<div id ="paquete-contenido">';
     echo '<h2>TIPO DE PAQUETE</h2>';
     echo '<ul>';
-    echo '<li>Cruceros</li>';
-    echo '<li>'.get_the_Title().'</li>';
+    echo '<li>Crucero por: ' .get_the_Title(). '</li>';
     echo '</ul>';
+    
+    echo '<form id= "form-fields" method="post">';
+    echo '<input class="text-field" type="text" id="destiny"  name="destiny" value="' .get_the_Title() . '" hidden/>';
     
     }
 

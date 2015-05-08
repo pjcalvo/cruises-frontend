@@ -49,7 +49,7 @@
                         <div class="col-xs-3">
                             <h3>Fecha de Salida</h3>
                             <div><p class="input-group">
-                                  <input type="text" ng-change="filterbyDate()" class="dropdown dropdown-itenerario form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                  <input type="text" ng-change="filterbyDate()" class="dropdown dropdown-itenerario form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
                                   <span class="input-group-btn">
                                     <button type="button" class="btn-calendar btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                                   </span>
@@ -155,7 +155,7 @@
                                         console.log(fecha.fecha);
                                         console.log($scope.selectedDate);
                                                               
-                                        if($scope.selectedDate == 'undefined' ||  $scope.selectedDate == '0001-01-01' || $scope.selectedDate == ''  || fecha.fecha == $scope.selectedDate){
+                                        if($scope.selectedDate == 'undefined' ||  $scope.selectedDate == '0001-01-01' || $scope.selectedDate == ''  || fecha.fecha >= $scope.selectedDate){
 
                                             $valid = 1;
                                         }         

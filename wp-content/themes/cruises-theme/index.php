@@ -33,9 +33,7 @@
                 
               <!--Caption-->
               <div class="carousel-caption container-fluid">
-                    <h1>50%<H1>
-                    <h2>DE DESCUENTO</h2>
-                    <h3>EN EL SEGUNDO PASAJERO</h3>
+                    <?php getPageContent(); ?>
                             <?php get_template_part( 'partials/-reserve-button', 'page' ); ?>  
                 </div> 
             

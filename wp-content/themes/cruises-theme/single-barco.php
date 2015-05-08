@@ -49,7 +49,7 @@
                         
                         <img src="{{destino.imagen}}">
                         <h4>{{destino.nombre}}</h4>
-                        <a class ="btn-primary" href="/reservaciones/">
+                        <a class ="btn-primary" href="" data-toggle="modal" data-target="#myModal">
                                 <strong>RESERVACIÓN</strong>
                         </a>
                         <a class ="btn-primary" href="{{destino.link}}">

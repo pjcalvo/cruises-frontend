@@ -10,73 +10,65 @@
 
                     <?php getDestinoDetalles(); ?>
                     
-                    <form id= "form-fields">
+                    
                          <div class="form-row">
                              <div class="form-field float-left field-300">
                                     <p>NOMBRE DE CLIENTE</p>
-                                    <input class="text-field flat" type="text" id="names" placeholder="John Smith" required/>    
+                                    <input class="text-field flat" type="text" id="names"  name="names" placeholder="John Smith" required/>    
                                 </div>
                         </div>     
                         <div class="form-row">
                              <div class="form-field float-left field-300">
                                     <p>FECHA DE SALIDA DEL CRUCERO</p>
-                                    <input class="text-field flat" type= "date" id="fechasalida" placeholder="mm/dd/aaaa"/>    
+                                    <input class="text-field flat" type= "date" id="fechasalida" name="salida" placeholder="mm/dd/aaaa"/>    
                              </div>
                         </div>
                         <div class="form-row">
                             <div class="form-field float-left field-300">
                                     <p>TIPO DE HABITACIÓN DEL CRUCERO</p>
-                                    <input class="text-field flat" type= "text" id="fechasalida" placeholder="Habitación"/>    
+                                    <input class="text-field flat" type= "text" id="habitacion" name="habitacion" placeholder="Habitación"/>    
                              </div>
-                        </div>
-                        <div class="form-field float-left field-300">
-                                <p>NÚMERO DE PASAJEROS</p>
-                                <input class="text-field flat" type= "text" id="fechasalida" placeholder="2"/>    
-                         </div>
+                        </div>   
                          <div class="form-row">
                              <div class="form-field float-left field-100">
-                                    <p>NOMBRE DE PASAJEROS</p>
-                                    <input class="text-field field-300 flat" type= "text" id="fechasalida" placeholder="Nombre Pasajero 1"/>  
-                                    <input class="text-field field-300 flat" type= "text" id="fechasalida" placeholder="Nombre Pasajero 2"/>    
-                                    <input class="text-field field-300 flat" type= "text" id="fechasalida" placeholder="Nombre Pasajero 3"/>    
+                                    <p>CANTIDAD DE PASAJEROS</p>
+                                    <input class="text-field field-300 flat" type= "numeric" name="adultos" id="adultos" placeholder="Adultos"/>  
+                                    <input class="text-field field-300 flat" type= "numeric" name="menores" id="menores" placeholder="Menores"/>    
+                                     
                              </div>
                         </div>
                         <div class="form-row">
                              <div class="form-field float-left field-300">
                                     <p>CORREO ELECTRÓNICO</p>
-                                    <input class="text-field flat" type= "text" id="fechasalida" placeholder="Correo Electrónico"/>    
+                                    <input class="text-field flat" type= "text" id="email" name="email" placeholder="Correo Electrónico" required/>    
                              </div>
                              <div class="form-field float-left field-300">
                                     <p>TELÉFONO</p>
-                                    <input class="text-field flat" type= "text" id="fechasalida" placeholder="Teléfono"/>    
-                             </div>
-                             <div class="form-field float-left field-300">
-                                    <p>FAX</p>
-                                    <input class="text-field flat" type= "text" id="fechasalida" placeholder="Fax"/>    
+                                    <input class="text-field flat" type= "text" id="telefono" name="telefono" placeholder="Teléfono" required/>    
                              </div>
                         </div>
                         <div class="form-row">
                              <div class="form-field float-left field-300">
                                     <p>PAÍS</p>
-                                    <input class="text-field flat" type= "text" id="fechasalida" placeholder="País"/>    
+                                    <input class="text-field flat" type= "text" id="pais" name= "pais" placeholder="País"/>    
                              </div>
                             <div class="form-field float-left field-300">
                                     <p>APARTADO POSTAL</p>
-                                    <input class="text-field flat" type= "text" id="fechasalida" placeholder="Apartado Postal"/>    
+                                    <input class="text-field flat" type= "text" id="postal" name= "postal" placeholder="Apartado Postal"/>    
                              </div>
                         </div>
                         <div class="form-row">
                              <div class="form-field comment-field">
                                     <p>COMENTARIOS</p>
-                                    <textarea  cols="40" rows="5" class="text-field" id="comentarios" placeholder="Por favor indicar toda la información que usted necesita" required></textarea>    
+                                    <textarea  cols="40" rows="5" class="text-field" id="comentarios" name="comentarios" placeholder="Por favor indicar toda la información que usted necesita" required></textarea>    
                              </div>
                         </div>
                          <div class="form-row">
                              <div class="form-field button-field center-field">
-                                    <input class="text-field btn-submit" type="submit" id="fecharegreso" value="ENVIAR SOLICITUD"/>    
+                                    <input class="text-field btn-submit" type="submit" id="" value="ENVIAR SOLICITUD"/>    
                                 </div>
                         </div>
-                        
+                        <?php include "libs/reserve-mail.php"?>
                     </form>
                     
                 </div>

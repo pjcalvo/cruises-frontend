@@ -35,8 +35,7 @@
                     </p>
                     <ul id="lista-servicios">
                         <li class="servicio col-xs-12">
-                             <img src="/img/icons/icon-naviera.png" alt="Imagen">
-                            <p class="nombre-servicio">CRUCERO</p>                            
+                            <p class="nombre-servicio">CRUCEROS</p>                            
                         </li>
                         
                     </ul>

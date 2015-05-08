@@ -2,27 +2,31 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){  
         
-        $emailSubject = 'Viaje Crucero: Mensaje de Contacto';
+        $emailSubject = 'Viaje Crucero: Mensaje de Reserva';
         $webMaster = 'pjcalvo@yahoo.com';
 
         $nombreField = $_POST ['names'];
+        $salidaField = $_POST['salida'];
+        $habitacionField = $_POST['habitacion'];
+        $adultosField = $_POST['adultos'];
+        $menoresField = $_POST['menores']; 
         $emailField = $_POST['email'];
         $telefonoField = $_POST['telefono'];
+        $paisField = $_POST['pais'];
+        $postalField = $_POST['postal'];
         $destinoField = $_POST['destiny'];
-        $salidaField = $_POST['salida'];
-        $regresoField = $_POST['regreso'];
-        $adultosField = $_POST['adultos'];
-        $menoresField = $_POST['menores'];    
         $comentariosField = $_POST ['comentarios'];
 
-        $body = 'Nombre: ' .  $nombreField . "\r\n" .
+        $body = 'Destino Solicitado: ' .  $destinoField . "\r\n" .
+             ' Fecha Salida: ' .  $salidaField . "\r\n" .
+             ' Cantidad de Adultos: ' .  $adultosField . "\r\n" .
+             ' Cantidad de Menores: ' .  $menoresField . "\r\n\r\n" .
+             ' Habitacion: ' .  $habitacionField . "\r\n\r\n" .
+             ' Nombre: ' .  $nombreField . "\r\n" .
              ' Email: ' . $emailField  . "\r\n" .
              ' Telefono: ' .  $telefonoField . "\r\n" .
-             ' Destino: ' .  $destinoField . "\r\n" .
-             ' Salida: ' .  $salidaField . "\r\n" .
-             ' Regreso: ' .  $regresoField . "\r\n" .
-             ' Adultos: ' .  $adultosField . "\r\n" .
-             ' Menores: ' .  $menoresField . "\r\n" .
+             ' Pais: ' .  $paisField . "\r\n" .
+             ' Postal: ' .  $postalField . "\r\n" .   
              ' Comentarios: ' .  $comentariosField;
 
         $headers = ' From: ' . $emailField;
@@ -37,7 +41,7 @@
             echo '<p class=" modal-title modal-text">Su email ha sido enviado!!!</p>';
         echo '</div>';
         echo '<div class="modal-body">';
-            echo ' <p class="modal-text">Su mensaje ha sido enviado. Nos contactaremos con usted con brevedad.</p>';
+            echo ' <p class="modal-text">Su mensaje de reserva ha sido enviado. Nos contactaremos con usted con brevedad.</p>';
         echo '</div>';
         echo ' </div><!-- /.modal-content -->';
         echo '</div><!-- /.modal-dialog -->';
