@@ -1,12 +1,13 @@
 <?php get_template_part( 'header', 'page' ); ?>
+<?php get_template_part( 'partials/-descarga-brochures', 'page' ); ?>
 
 <section class="content extended">      
             <div id="carousel-hero" class="carousel slide carousel-custom" data-ride="carousel">
               <!-- Indicators -->
               <ol class="carousel-indicators">
-                <li data-target="#carousel-hero" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-hero" data-slide-to="1"></li>
-                <li data-target="#carousel-hero" data-slide-to="2"></li>
+                <a class="col-xs-12 carousel-control" role="button">
+                <span class="glyphicon glyphicon-chevron-down circle" onclick="autoScrollTo('destinos-home')"></span>
+              </a>
               </ol>
 
               <!-- Wrapper for slides -->

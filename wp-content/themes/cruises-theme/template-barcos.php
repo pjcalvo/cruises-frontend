@@ -56,10 +56,10 @@
                     <div id="barcos-lista">
                         <div class="barco-detalle" ng-repeat="barco in paginatedBarcos">
                             <div class="imagen-crucero" >
-                                <img src="{{barco.imagen}}"/>
+                                <img ng-src="{{barco.imagen}}"/>
                             </div>
                             <div class="crucero-detalle">
-                                <h4> {{barco.nombre}}<sup>&#174;</sup></h4>
+                                <h4>{{barco.nombre}}<sup>&#174;</sup></h4>
                                 <p ng-bind = "barco.detalle"></p>
                                 <p class= "clase-barco" ng-hide = "barco.clase == ''"><strong>Clase: </strong>{{barco.clase}}</p>
                                 <a class ="btn-primary" href="{{barco.link}}">

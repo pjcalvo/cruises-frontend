@@ -1,0 +1,128 @@
+.brochures{
+    position: fixed;
+    height: 128px;
+    width: auto;
+    border-radius: 8px;
+    top: 80%;
+    right: 2%;
+    z-index: 999;
+    transition: 0.4s;
+    display: inline-block;
+    
+    &:hover{
+        
+        .right-caret{
+             animation-delay: 0s;
+            border-radius: 10px 0px 0px 10px;
+            box-shadow: black 2px 1px 2px;
+        }
+        
+        .descarga-seccion{          
+            max-width: 370px;
+            width: 100%;
+            box-shadow: black 2px 1px 2px;
+            
+        }
+        
+        .trans-delay{
+            transition-delay: 0.5s;
+            visibility: visible;
+        }
+        /*
+        .glyphicon-plus{
+            &:before{
+                content: "\2212";
+            }
+        }*/
+    }
+    
+    .right-caret{
+         animation-delay: 5s;
+        transition: 0.4s;
+        float: left;
+        //transform: rotate(180deg);
+        padding-top: 45px;
+        //background-image: url("../img/icons/icon-button.png");
+        background-repeat: no-repeat;
+        background-position: -3px;
+        height: 30px;
+        background-color: rgba(11,121,189,0.9);
+        width: 46px;
+        background-size:48px;
+        border-radius: 25px;
+          box-shadow: black -1px -1px 5px;
+    }
+    
+    .descarga-seccion{
+        float: right;
+        background-color: rgba(40,138,197,0.9);
+        width: 100%;
+        max-width: 0px;
+        height: 105%;
+        transition: 0.5s;   
+        padding-top: 5px;
+        
+        
+    }
+    
+    .descarga-title {
+        
+        color: @color-white;
+        text-align: center;
+        
+        p{
+            font-weight: 100;
+            padding: 10px 20px;
+            font-size: 12px;
+            border-bottom: 1px solid @color-blue-line;
+        }
+    }  
+    
+    .icon-icon{
+        padding-top: 50px;
+        text-align: center;
+    }
+    
+    .download-section{       
+        background-image: url('../img/icons/iconos-barcos.png');
+        background-repeat: no-repeat;
+        padding-top: 50px;
+        text-align: center;
+        width: 100%;
+        
+        font-weight: 800;
+        font-size: 9px;
+        color: @color-white;
+        
+        &:hover{
+                cursor: pointer;
+        }
+        
+        &.royal{
+            background-position-x: 27px;
+        }
+        
+        &.celebrity{
+            background-position-x: -98px;
+        }
+        
+        &.azamara{
+            background-position-x: -206px;
+        }
+    }
+}
+
+.trans-delay{
+        visibility: hidden;
+        transition-delay: 0s;  
+}
+
+
+.glyphicon-cloud-download{
+      top: 11px;
+      position: absolute;
+      left: 12px;
+      color: white;
+      font-size: 23px;
+      
+}

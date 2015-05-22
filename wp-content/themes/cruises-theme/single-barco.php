@@ -10,7 +10,7 @@
     <section class="content">
             <div id="barco-hero" class="small-container">
                 <div id="galeria-portada">
-                    <img id = "imagen-portada" src="{{heroImage}}">
+                    <img id = "imagen-portada" ng-src="{{heroImage}}">
                 </div>
                 <div id= "todas-fotos">
                     <div class="imagenes-galeria left-float">
@@ -18,7 +18,7 @@
                         <p class="right-float">FOTOS INTERNAS</p>
                             <ul class="lista-fotos right-float" >
                                 <li ng-class="{active: heroImage == imagen.src}" class="item-foto" ng-repeat="imagen in imagenesInterior">
-                                    <img ng-click="setHeroImage(imagen.src)" class="imagen-thumbnail" src="{{imagen.src}}">
+                                    <img ng-click="setHeroImage(imagen.src)" class="imagen-thumbnail" ng-src="{{imagen.src}}">
                                 </li>
                         
                             </ul>
@@ -28,7 +28,7 @@
                         <p>FOTOS EXTERNAS</p>
                         <ul class="lista-fotos">
                             <li class="item-foto" ng-class="{active: heroImage == imagen.src}" ng-repeat="imagen in imagenesExterior">
-                                <img ng-click= "setHeroImage(imagen.src)" class="imagen-thumbnail" src="{{imagen.src}}">
+                                <img ng-click= "setHeroImage(imagen.src)" class="imagen-thumbnail" ng-src="{{imagen.src}}">
                             </li>
                         </ul>
                     </div>
@@ -47,7 +47,7 @@
                 <div id="lista-destinos-barco" class="small-container">
                     <div class="item-destino-barco col-xs-6" ng-repeat = "destino in paginatedDestinos">
                         
-                        <img src="{{destino.imagen}}">
+                        <img ng-src="{{destino.imagen}}">
                         <h4>{{destino.nombre}}</h4>
                         <a class ="btn-primary" href="" data-toggle="modal" data-target="#myModal">
                                 <strong>RESERVACIÓN</strong>

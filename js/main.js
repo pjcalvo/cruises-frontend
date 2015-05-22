@@ -38,3 +38,101 @@
 
 
 }());
+
+var windowHeight = 0;
+var windowWidth = 0;
+
+function adjustSliderHeight(){
+    var w = window,
+        d = document,
+        e = d.documentElement,
+        g = d.getElementsByTagName('body')[0],
+        y = w.innerHeight|| e.clientHeight|| g.clientHeight,
+        x = w.innerWidth;
+    
+    if (x < 400){
+        y = 900;
+    
+    }
+    else{
+    
+        if (y > 875) {
+            if (x < 980)   {
+                y = 900;
+            } 
+
+           windowHeight = y;
+        }
+        else
+        {
+            y = 875;
+        }
+    }
+        
+    
+    windowWidth = x;
+    
+    y = y - 190; 
+
+    console.log(y + "px");
+    console.log(x + "pxs");
+
+    var myElements = document.querySelectorAll('#carousel-hero');
+       
+    for (var i = 0; i < myElements.length; i++) {
+         
+        if (windowWidth <= 980 ){
+            myElements[i].style.height = y + "px";
+        }
+        else{
+            myElements[i].style.height = y  + "px";
+        }
+        
+    }
+}
+
+window.onload = adjustSliderHeight();
+
+$( window ).resize(function() {
+    adjustSliderHeight();
+});
+
+
+var scrollY = 2;
+var distance = 50;
+var speed = 20;
+
+function autoScrollTo(el) {
+    var currentY = window.pageYOffset;
+    var targetY = document.getElementById(el).offsetTop;
+    var bodyHeight = document.body.offsetHeight;
+    var yPos = currentY + window.innerHeight;
+    var animator = setTimeout('autoScrollTo(\'' + el + '\')', 24);
+    if (yPos > bodyHeight) {
+        clearTimeout(animator);
+    } else {
+        if (targetY -currentY > 0) {
+            if (targetY - currentY < distance){
+                scrollY = targetY;
+            }
+            else{
+                scrollY = currentY + distance;
+            }
+            window.scroll(0, scrollY);
+        } else {
+            clearTimeout(animator);
+        }
+    }
+}
+
+function resetScroller(el) {
+    var currentY = window.pageYOffset;
+    var targetY = document.getElementById(el).offsetTop;
+    var animator = setTimeout('resetScroller(\'' + el + '\')', speed);
+    if (currentY > targetY) {
+        scrollY = currentY - distance;
+        window.scroll(0, scrollY);
+    } else {
+        clearTimeout(animator);
+    }
+}
