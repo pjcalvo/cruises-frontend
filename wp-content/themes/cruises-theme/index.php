@@ -69,7 +69,7 @@
             <div id="promociones-home" class="extended">
                 <div class="container-fluid">
                     <h1>PROMOCIONES</h1>
-                    <div class="col-xs-10 detail">
+                    <div class="col-xs-10 detail"> 
                         <p></p>
                     </div>
                     <div class="promociones">

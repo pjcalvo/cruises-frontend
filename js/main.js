@@ -119,7 +119,7 @@ function autoScrollTo(el) {
                 scrollY = currentY + distance;
             }
             window.scroll(0, scrollY);
-        } else {
+        } else { 
             clearTimeout(animator);
         }
     }
