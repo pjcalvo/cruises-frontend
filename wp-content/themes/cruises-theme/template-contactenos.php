@@ -12,34 +12,7 @@
                            <?php get_template_part( 'partials/-reserve-button', 'page' ); ?>  
                 </div>
             </div>                     
-     </section>
-    s<section class="content">
-            <div id="nosotros-content" class="extended">
-                <div class="container-fluid">
-                    <h1>NOSOTROS</h1>
-                    <p id="nosotros-info" class="multi-line">
-                        <?php getPageContent(); ?>
-                    </p>
-                    <img id="gsa-logo" src="/img/icons/gsa-logo.jpg"/>
-                </div>
-            </div>                     
-     </section>
-    <section class="content">
-            <div id="servicios-content" class="extended">
-                <div class="container-fluid">
-                    <h1>SERVICIOS QUE OFRECEMOS:</h1>
-                    <p>Venta de paquetes turísticos y cruceros alrededor del mundo, trabajando junto a las mejores empresas del mercado. 
-                    </p>
-                    <ul id="lista-servicios">
-                        <li class="servicio col-xs-12">
-                             <img src="/img/icons/icon-naviera.png" alt="Imagen">
-                            <p class="nombre-servicio">CRUCERO</p>                            
-                        </li>
-                        
-                    </ul>
-                </div>
-            </div>                     
-     </section>  
+    </section>
 
     <section class="content">
             <div id="contactenos-content" class="extended">
@@ -116,7 +89,6 @@
                 </div>
             </div>                     
      </section>
-
     <section class="content">
         
             <div id="googlemap-title" class="extended">
@@ -126,6 +98,35 @@
             
             </div>
     </section>
+    <section class="content">
+            <div id="nosotros-content" class="extended">
+                <div class="container-fluid">
+                    <h1>NOSOTROS</h1>
+                    <p id="nosotros-info" class="multi-line">
+                        <?php getPageContent(); ?>
+                    </p>
+                    <img id="gsa-logo" src="/img/logo-gsa-cuadrado.png"/>
+                </div>
+            </div>                     
+     </section>
+    <section class="content">
+            <div id="servicios-content" class="extended">
+                <div class="container-fluid">
+                    <h1>SERVICIOS QUE OFRECEMOS:</h1>
+                    <p>Venta de paquetes turísticos y cruceros alrededor del mundo, trabajando junto a las mejores empresas del mercado. 
+                    </p>
+                    <ul id="lista-servicios">
+                        <li class="servicio col-xs-12">
+                             <img src="/img/icons/icon-naviera.png" alt="Imagen">
+                            <p class="nombre-servicio">CRUCERO</p>                            
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>                     
+     </section>  
+
+    
 
 
 <?php get_template_part( 'partials/-noticias', 'page' ); ?>  

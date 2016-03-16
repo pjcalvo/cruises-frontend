@@ -73,7 +73,7 @@
                         <p></p>
                     </div>
                     <div class="promociones">
-                        <?php getPromocionesHome(); ?>
+                        <?php getPromocionesHome("all"); ?>
                     </div>
                 </div>
             </div>            

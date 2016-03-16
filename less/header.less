@@ -14,6 +14,48 @@ header {
         z-index: 9999;
         width: 100%;
     }
+    
+    .companies-area{
+        min-height: 0px;
+        padding-top: 0px;
+        
+                
+        a{
+            background-image: url("/img/logo-cruceros.png");    
+            background-repeat: no-repeat;
+            display: inline-flex;
+            height: 80px;
+            background-size: 350%;
+            
+        }
+        
+        #company-logo{
+                
+            background-image: none;
+            border-right: 2px solid @color-gray;
+            margin-right: 2.5%;
+            padding-right: 19.5%;
+            
+            img{
+                    width: auto;
+                    max-height: 80px;
+                
+            }
+        }
+        
+        #company1{
+                background-position: 36px 20px;
+        }
+        #company2{
+                background-position: -130px 20px;
+        }
+        #company3{
+                background-position: -298px 20px;
+        }
+        #company4{
+                background-position: -483px 20px;
+        }
+    }
 
 	.top-head{
 		padding-top: 15px;
@@ -21,45 +63,22 @@ header {
         padding-left: 0px; 
         text-align: center;
         
+        
+        
         .countries {
             font-size: 12px;
         }
 
-		.logo{
-			float: left;
-            padding-left: 45px;
-			img{
-				height: 33px;
-			}
-		}
-
-		ul{
-			margin: 0;
-			padding-top: 9px;
-            padding-right: 20px;
-            padding-bottom: 15px;
-
-			li{
-				display: inline-block;
-				color: @color-blue;
-				a{
-					text-decoration: none;
-					padding-left:15px;
-					margin-left: 15px;
-				}
-				&:first-child a{
-						padding-left: 0;
-						margin-left: 0;
-				}
-                &:last-child a{
-                        padding-right: @padding-header;
-                }
-                
-                img {
-                    height: 40px;
-                }
-			}
-		}
+        p{
+            display: inline-block;  
+            
+             &:last-child{
+                border-left: 2px solid @color-gray;
+                padding-left: 15px;
+                 margin-left: 15px;
+            }
+        }
+        
 	}
 
     .header-container{

@@ -64,18 +64,15 @@ function adjustSliderHeight(){
            windowHeight = y;
         }
         else
-        {
+        { 
             y = 875;
         }
     }
         
-    
+     
     windowWidth = x;
     
-    y = y - 190; 
-
-    console.log(y + "px");
-    console.log(x + "pxs");
+    y = y - 181; 
 
     var myElements = document.querySelectorAll('#carousel-hero');
        
@@ -123,7 +120,7 @@ function autoScrollTo(el) {
             clearTimeout(animator);
         }
     }
-}
+} 
 
 function resetScroller(el) {
     var currentY = window.pageYOffset;
@@ -132,7 +129,7 @@ function resetScroller(el) {
     if (currentY > targetY) {
         scrollY = currentY - distance;
         window.scroll(0, scrollY);
-    } else {
+    } else { 
         clearTimeout(animator);
     }
 }

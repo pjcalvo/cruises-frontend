@@ -31,7 +31,7 @@ function getNovedadesByEmpresa($empresa, $count) {
                                 
 }
 
-function getPromocionesHome() {
+function getPromocionesHome($empresaFiltro) {
 
      // The Query
     $args = array(
@@ -39,28 +39,64 @@ function getPromocionesHome() {
         'posts_per_page'=>3
     );
     $the_query = new WP_Query( $args );
+    
+    $count = 0;
 
     // The Loop
     if ( $the_query->have_posts() ) {
         
         while ( $the_query->have_posts()) {
             $the_query->the_post();
-            echo '<div class="promocion" id="promocion-' . get_the_ID() . '">';
-            echo types_render_field("imagen", array('size' => 'promociones-thumb'));
-            echo '<h2>' .types_render_field("promocion", array("output"=>"string")) . '</h2>';
-            echo '<div class="detail promo text">';
-            echo '<p>' . substr(types_render_field("detalles", array("output"=>"raw")),0, 250) . '...' . '</p>';
-            echo '</div>';
-            echo '<a class ="btn-primary" href="' . get_permalink() . ' ">';
-            echo '<strong>LEER MAS</strong>';
-            echo '</a> </div>';
+            
+            $terms = get_the_terms( get_the_ID(), 'empresa' );
+            $slug = '';
+            
+            foreach ( $terms as $term ) {
+		          $slug = $term->name;
+	        }       
+                        
+            if($slug == $empresaFiltro or $empresaFiltro == "all"){
+                
+                $count = $count +1;
+                
+                echo '<div class="promocion" id="promocion-' . get_the_ID() . '">';
+                echo types_render_field("imagen", array('size' => 'promociones-thumb'));
+                echo '<h2>' .types_render_field("promocion", array("output"=>"string")) . '</h2>';
+                echo '<div class="detail promo text">';
+                echo '<p>' . substr(types_render_field("detalles", array("output"=>"raw")),0, 250) . '...' . '</p>';
+                echo '</div>';
+                echo '<a class ="btn-primary" href="' . get_permalink() . ' ">';
+                echo '<strong>LEER MAS</strong>';
+                echo '</a> </div>';
+            }
          }                          
     } 
-    else {
-        echo '<h2>No hay novedadgunes para este proveedor</h2>';
+    if ($count == 0){
+        echo '<h2>Actualmente no hay promociones.. </h2>';
     }
                                 /* Restore original Post Data */
                                 
+}
+
+function getNavieraUrl($naviera){
+    $args = array('post_type' => 'naviera');
+    $the_query = new WP_Query($args);
+    if ( $the_query->have_posts() ) {
+        while ( $the_query->have_posts()) {
+                $the_query->the_post();
+                $terms = get_the_terms( get_the_ID(), 'empresa' );
+                $slug = '';
+            
+                foreach ( $terms as $term ) {
+		          $slug = $term->name;
+	           }
+               if($slug == $naviera){
+                  echo get_permalink();
+              }
+        }
+    }
+    
+    
 }
 
 function getNoticiasHome() {
@@ -92,7 +128,7 @@ function getNoticiasHome() {
             
             foreach ( $terms as $term ) {
 		          $slug = $term->slug;
-	           }
+	        }
             
             switch ($slug) {
                 case 'royal':
@@ -185,7 +221,7 @@ function getEmpresasBarcos() {
                                 
 }
 
-function getListaBarcos() {
+function getListaBarcos($empresaFiltro) {
 
      // The Query
     $args = array(
@@ -219,9 +255,10 @@ function getListaBarcos() {
                       $claseName = $termino->name;
                 }
             }
-                
-                $count = $count+1;
-                echo '$scope.barcoss.push({"clase":"' . $claseName . '", "empresa":"' .$slug . '", "imagen":"' . types_render_field("imagen", array("output"=>"raw")) . '", "nombre":"' . get_the_Title() . '", "detalle" : "' . substr(preg_replace("/\r\n|\r|\n/",'\\n',get_the_content()),0, 450) . '...", "link": "'. get_permalink()  . '"});';
+                if($slug == $empresaFiltro or $empresaFiltro == "all"){
+                    $count = $count+1;
+                    echo '$scope.barcoss.push({"clase":"' . $claseName . '", "empresa":"' .$slug . '", "imagen":"' . types_render_field("imagen", array("output"=>"raw")) . '", "nombre":"' . get_the_Title() . '", "detalle" : "' . substr(preg_replace("/\r\n|\r|\n/",'\\n',get_the_content()),0, 450) . '...", "link": "'. get_permalink()  . '"});';
+                }
             
          }
         

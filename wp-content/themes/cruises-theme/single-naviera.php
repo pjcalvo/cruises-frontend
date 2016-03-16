@@ -1,58 +1,46 @@
 <?php
 /*
- Template Name: Pagina Barcos
+ Template Name: Pagina Detalle Naviera
 */
 ?>
 
-<?php get_template_part( 'header', 'page' ); ?>
+<?php 
+    get_template_part( 'header', 'page' ); 
+    $theTitle = get_the_title();
+?>
     <section class="content">
-            <div id="barcos-hero" class="extended sub-hero">
+            <?php echo "<div id=\"barcos-hero\" class=\"extended sub-hero\" style=\"background-image:url('". (types_render_field("imagen-banner", array("raw"=>"false", "url"=>"true"))) ."')\">"; ?> 
                 <div class="container-fluid">
-                    <h1>BARCOS</h1>
+                    <?php echo "<h1>". $theTitle . "</h1>" ?>
                            <?php get_template_part( 'partials/-reserve-button', 'page' ); ?>  
                 </div>
             </div>                     
      </section>
         
-
-    <section class="content">
-            <div id="barcos-content" class="extended" ng-app="barcos" ng-controller="barcoController">
+     <section class="content">
+            <div id="promociones-home" class="extended">
                 <div class="container-fluid">
-                    <h1>NUESTRA FLOTA</h1>
+                    <h1>PROMOCIONES</h1>
+                    <div class="col-xs-10 detail"> 
+                        <p></p>
+                    </div>
+                    <div class="promociones">
+                        <?php getPromocionesHome($theTitle); ?>
+                    </div>
+                </div>
+            </div>            
+</section>
+
+<section class="content" id="nuestraFlota">
+    <hr style="border-bottom: 5px solid #0073bb;"> 
+</section>
+    
+    <section class="content">
+            <div id="barcos-content" class="extended" ng-app="naviera" ng-controller="navieraController">
+                <div class="container-fluid">
+                    <h1 >NUESTRA FLOTA</h1>
                     <p class="multi-line"><?php getPageContent(); ?>
                     </p>
-                    <div id="barcos-categorias">
-                        <h3>NUESTROS CRUCEROS</h3>
-                        <div class="companies-area container-fluid">
-                            <ul>
-                                <li ng-class="{active: empresa == 'Azamara Club Cruises'}" ng-click="filterBarcos('Azamara Club Cruises')" id="company1">
-                                    <a href=""></a>
-                                </li>
-                                <li ng-class="{active: empresa == 'Celebrity Cruises'}" ng-click="filterBarcos('Celebrity Cruises')" id="company2">
-                                    <a href=""></a>
-                                </li>
-                                <li ng-class="{active: empresa == 'Royal Caribbean'}" ng-click="filterBarcos('Royal Caribbean')" id="company3">
-                                    <a href=""></a>
-                                </li>
-                                <li ng-class="{active: empresa == 'Pullmantur'}" ng-click="filterBarcos('Pullmantur')" id="company4">
-                                    <a href=""></a>
-                                </li>            
-                            </ul>
-                        </div>
-                        <!--<div class="dropdown">
-                          <button class="btn btn-default dropdown-toggle" type="button" id="dropdown-barcos" data-toggle="menu">
-                            Todos
-                            <span class="caret"></span>
-                          </button>
-                            
-                            
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-barcos">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="filterBarcos('')">Todos</a></li>
-                            <?php getEmpresasBarcos(); ?>
-                            
-                          </ul>
-                        </div>-->
-                    </div>
                     <div id="barcos-lista">
                         <div class="barco-detalle" ng-repeat="barco in paginatedBarcos">
                             <div class="imagen-crucero" >
@@ -83,19 +71,21 @@
 <?php get_footer(); ?>
 
 <script>
-               angular.module('barcos', ['ui.bootstrap']);
-                  angular.module('barcos').controller('barcoController', function ($scope) {   
+               angular.module('naviera', ['ui.bootstrap']);
+                  angular.module('naviera').controller('navieraController', function ($scope) {   
                       
                   $scope.barcoss = [];       
-                  <?php getListaBarcos("all"); ?>
+                  <?php echo getListaBarcos($theTitle); ?>
                       
                   $scope.paginatedBarcos = {};
                   $scope.filteredBarcos = $scope.barcoss;     
                   
                   $scope.totalItems = $scope.bigCount;
                   $scope.currentPage = 1;
-                  $scope.itemsPage = 10;
+                  $scope.itemsPage = 5;
                   $scope.maxSize = 5;
+                      
+                  $scope.firstTime =true;
                       
                   $scope.empresa = 'Todos';
                       
@@ -135,9 +125,14 @@
                         , end = begin + $scope.itemsPage;
 
                         $scope.paginatedBarcos = $scope.filteredBarcos.slice(begin, end);
-                  });    
-                
-
+                        
+                        if ($scope.firstTime == true){ 
+                            $scope.firstTime = false;
+                        }
+                      else{
+                        document.getElementById('nuestraFlota').scrollIntoView();
+                      }
+                  });   
     
                 });
 

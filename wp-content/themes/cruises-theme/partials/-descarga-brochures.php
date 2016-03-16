@@ -12,4 +12,4 @@
         <div class = "col-xs-4 trans-delay icon-icon">
             <a href ="http://viewer.zmags.com/publication/72a990e8#/72a990e8/1" target="_blank" class="download-section azamara">AZAMARA</a></div>  
     </div>       
-</section>  s
+</section>
