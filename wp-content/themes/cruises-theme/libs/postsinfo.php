@@ -73,9 +73,54 @@ function getPromocionesHome($empresaFiltro) {
     } 
     if ($count == 0){
         echo '<h2>Actualmente no hay promociones.. </h2>';
-    }
-                                /* Restore original Post Data */
-                                
+    }                                /* Restore original Post Data */                                
+}
+
+function getPromocionesSlider($empresaFiltro) {
+
+     // The Query
+    $args = array(
+        'post_type' => 'promocion',
+        'posts_per_page'=>0
+    );
+    $the_query = new WP_Query( $args );
+    
+    $count = 0;
+
+    // The Loop
+    if ( $the_query->have_posts() ) {
+        
+        while ( $the_query->have_posts()) {
+            $the_query->the_post();
+            
+            $terms = get_the_terms( get_the_ID(), 'empresa' );
+            $slug = '';
+            
+            foreach ( $terms as $term ) {
+		          $slug = $term->name;
+	        }       
+                        
+            if($slug == $empresaFiltro or $empresaFiltro == "all"){
+                
+                
+               if ($count == 0){
+                    echo '<div class="item active slide1 heigh100">';
+                }
+                else {
+                    echo '<div class="item slide' . ($count +1) . ' heigh100">';
+                }
+                
+                echo types_render_field("imagen", array('size' => 'large'));
+                echo '<div class="carousel-caption">';
+                echo '<h3></h3>';
+                echo '</div>';
+                echo '</div>';
+                
+                $count = $count +1;
+                            
+            }
+         }                          
+    }                            /* Restore original Post Data */                                
 }
 
 function getNavieraUrl($naviera){

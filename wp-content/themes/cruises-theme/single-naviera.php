@@ -5,20 +5,64 @@
 ?>
 
 <?php 
-    get_template_part( 'header', 'page' ); 
+    get_template_part( 'header-scripts', 'page' ); 
     $theTitle = get_the_title();
 ?>
+    <header>
+            <div class="fixed-header">
+			     <div class="container-fluid">
+                    <?php echo "<img class=\"col-xs-3\" src=\"" .(types_render_field("logo-naviera", array("raw"=>"false", "url"=>"true"))) . "\">"?>
+                     <div class="banner-reserve"><?php get_template_part( 'partials/-reserve-button-short', 'page' ); ?></div>
+                     <img class= "gsa-logo-naviera" src="/img/logo-gsa.png">
+			     </div>			
+				 <div id= "menu-header" class="header-container extended">
+                    <div class="container-fluid navbar-container">
+                    <?php
+                        if (has_nav_menu('primary_navigation')) : wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'menu'));
+                        endif;
+                    ?>
+				</div>
+			</div>
+        </div>
+    </header>
+    
     <section class="content">
-            <?php echo "<div id=\"barcos-hero\" class=\"extended sub-hero\" style=\"background-image:url('". (types_render_field("imagen-banner", array("raw"=>"false", "url"=>"true"))) ."')\">"; ?> 
-                <div class="container-fluid">
-                    <?php echo "<h1>". $theTitle . "</h1>" ?>
-                           <?php get_template_part( 'partials/-reserve-button', 'page' ); ?>  
-                </div>
-            </div>                     
+            <?php echo "<h4 class=\"text-center\">" . $theTitle . "</h4>";?>
      </section>
+
+    <section class="content extended">       
+            <div class="container-fluid">      
+        <div id="carousel-hero-naviera" class="carousel slide carousel-custom" data-ride="carousel">
+                    
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <a class="col-xs-12 carousel-control" role="button">
+                    </a>
+                  </ol>
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner heigh100">
+                   
+                      <?php getPromocionesSlider($theTitle); ?>
+                   
+                  </div>
+                  <!-- Controls -->
+                  <a class="left carousel-control" href="#carousel-hero-naviera" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-hero-naviera" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                  </a>
+                </div> <!-- Carousel -->
+            </div>
+      </section> 
+
+<section class="content">
+    <hr class="hr-blue-no-margin"> 
+</section>
         
      <section class="content">
-            <div id="promociones-home" class="extended">
+            <div id="promociones-home" class="extended promociones-naviera">
                 <div class="container-fluid">
                     <h1>PROMOCIONES</h1>
                     <div class="col-xs-10 detail"> 
@@ -32,7 +76,7 @@
 </section>
 
 <section class="content" id="nuestraFlota">
-    <hr style="border-bottom: 5px solid #0073bb;"> 
+    <hr class="hr-blue-no-margin"> 
 </section>
     
     <section class="content">
@@ -82,8 +126,8 @@
                   
                   $scope.totalItems = $scope.bigCount;
                   $scope.currentPage = 1;
-                  $scope.itemsPage = 5;
-                  $scope.maxSize = 5;
+                  $scope.itemsPage = 3;
+                  $scope.maxSize = 10;
                       
                   $scope.firstTime =true;
                       
