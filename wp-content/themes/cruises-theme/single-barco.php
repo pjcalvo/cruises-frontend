@@ -4,7 +4,14 @@
 */
 ?>
 
-<?php get_template_part( 'header', 'page' ); ?>
+<?php 
+    get_template_part( 'header', 'page' );
+    $postBarcos = the_post();
+    $my_postid = get_the_ID();
+    $interior = types_render_field("interior",   array("output"=>"raw",'separator'=>'"},{src:"'));
+    $exterior = types_render_field("exterior",   array("output"=>"raw",'separator'=>'"},{src:"'));
+    $heroImage = types_render_field("imagen", array("output"=>"raw"));
+?>
  
 <div ng-app="barco" ng-controller="barco-controller">
     <section class="content">
@@ -40,7 +47,14 @@
             <div id="barco-content" class="container-fluid">
                <div class="small-container">
                    <h1>{{name}}</h1>
-                   <p class="multi-line" ng-bind="detalle"></p>
+                   <!--<p class="multi-line" ng-bind="detalle"></p>-->
+                       <?php  
+                            $content_post = get_post($my_postid);
+                            $content = $content_post->post_content;
+                            $content = apply_filters('the_content', $content);
+                            $content = str_replace(']]>', ']]&gt;', $content);
+                            echo $content;
+                        ?>
                 </div>
                 <hr/>
                 <h3 class="small-container">ESCOGE ENTRE NUESTROS DESTINOS</h3>
@@ -81,10 +95,13 @@
                   $scope.destinosCount = 0;
                   $scope.imagesInterior = [];
                   $scope.imagesExterior = [];
-                  $scope.name ="";
-                  $scope.detalle ="";                                
+                  $scope.name ="";                           
                       
-                  <?php getDatosBarco(); ?>      
+                  <?php 
+
+                    getDatosBarco($my_postid, $interior, $exterior, $heroImage); 
+                   
+                  ?>      
                                        
                   $scope.paginatedDestinos = [];     
                   

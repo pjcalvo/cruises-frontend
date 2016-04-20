@@ -447,23 +447,23 @@ function getItinerariosDestinos() {
                                 
 }
 
-function getDatosBarco() {
+function getDatosBarco($id, $interior, $exterior, $heroImage) {
 
-    $postBarco = the_post();
+    $postBarco = the_post($id);
     
     echo '$scope.imagenesInterior = [{src:"';
-    echo types_render_field("interior",   array("output"=>"raw",'separator'=>'"},{src:"'));
+    echo $interior;
     echo '"}];';
     
     echo '$scope.imagenesExterior = [{src:"';
-    echo types_render_field("exterior",   array("output"=>"raw",'separator'=>'"},{src:"'));
+    echo $exterior;
     echo '"}];';
     
-    echo '$scope.name = "' . get_the_Title() . '";';
-    $content = str_replace('&nbsp;'," ",get_the_content());
-    echo '$scope.detalle = "' . preg_replace("/\r\n|\r|\n/",'\n',$content) . '";';
+    echo '$scope.name = "' . get_the_Title($id) . '";';
+    //$content = str_replace('&nbsp;'," ",get_the_content());
+    //echo '$scope.detalle = "' . preg_replace("/\r\n|\r|\n/",'\n',$content) . '";';
     
-    echo '$scope.heroImage = "'. types_render_field("imagen", array("output"=>"raw")) .'";';
+    echo '$scope.heroImage = "'. $heroImage .'";';
     
     $count = 0;
     

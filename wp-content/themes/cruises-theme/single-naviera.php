@@ -11,7 +11,7 @@
     <header>
             <div class="fixed-header">
 			     <div class="container-fluid">
-                    <?php echo "<img class=\"col-xs-3\" src=\"" .(types_render_field("logo-naviera", array("raw"=>"false", "url"=>"true"))) . "\">"?>
+                    <?php echo "<img class=\"col-xs-3\" src=\"" . (types_render_field("logo-naviera", array("raw"=>"false", "url"=>"true"))) . "\">"?>
                      <div class="banner-reserve"><?php get_template_part( 'partials/-reserve-button-short', 'page' ); ?></div>
                      <img class= "gsa-logo-naviera" src="/img/logo-gsa.png">
 			     </div>			
@@ -27,7 +27,7 @@
     </header>
     
     <section class="content">
-            <?php echo "<h4 class=\"text-center\">" . $theTitle . "</h4>";?>
+            <?php echo "<h4 class=\"text-center\">" . (types_render_field("nombre", array("raw"=>"true"))) . "</h4>";?>
      </section>
 
     <section class="content extended">       
