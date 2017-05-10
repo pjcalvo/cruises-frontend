@@ -62,6 +62,8 @@
             </div>            
 		</section>
 
+<?php [submit-review] ?>
+
     
 <?php get_template_part( 'partials/-noticias', 'page' ); ?>        
     

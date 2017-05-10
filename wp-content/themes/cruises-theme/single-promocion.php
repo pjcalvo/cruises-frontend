@@ -14,8 +14,8 @@ $ID = get_the_id();
 
     <section class="content container-fluid">
             <div id="novedad-content" class="small-container">
-                <div id="novedad-portada">
-                   <img id = "imagen-portada" src="
+                <div id="novedad-portada" style="height:800px">
+                   <img id = "imagen-portada" style = "max-width: 100%" src="
                         <?php echo $imagen; ?>
                     ">
                 </div>

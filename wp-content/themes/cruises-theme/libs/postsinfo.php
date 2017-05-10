@@ -36,7 +36,7 @@ function getPromocionesHome($empresaFiltro) {
      // The Query
     $args = array(
         'post_type' => 'promocion',
-        'posts_per_page'=>3
+        'posts_per_page'=>0
     );
     $the_query = new WP_Query( $args );
     
@@ -45,7 +45,7 @@ function getPromocionesHome($empresaFiltro) {
     // The Loop
     if ( $the_query->have_posts() ) {
         
-        while ( $the_query->have_posts()) {
+        while ( $the_query->have_posts() and $count < 3) {
             $the_query->the_post();
             
             $terms = get_the_terms( get_the_ID(), 'empresa' );
@@ -54,7 +54,7 @@ function getPromocionesHome($empresaFiltro) {
             foreach ( $terms as $term ) {
 		          $slug = $term->name;
 	        }       
-                        
+
             if($slug == $empresaFiltro or $empresaFiltro == "all"){
                 
                 $count = $count +1;
@@ -302,7 +302,7 @@ function getListaBarcos($empresaFiltro) {
             }
                 if($slug == $empresaFiltro or $empresaFiltro == "all"){
                     $count = $count+1;
-                    echo '$scope.barcoss.push({"clase":"' . $claseName . '", "empresa":"' .$slug . '", "imagen":"' . types_render_field("imagen", array("output"=>"raw")) . '", "nombre":"' . get_the_Title() . '", "detalle" : "' . substr(preg_replace("/\r\n|\r|\n/",'\\n',get_the_content()),0, 450) . '...", "link": "'. get_permalink()  . '"});';
+                    echo '$scope.barcoss.push({"clase":"' . $claseName . '", "empresa":"' .$slug . '", "imagen":"' . types_render_field("imagen", array("output"=>"raw")) . '", "nombre":"' . get_the_Title() . '", "detalle" : "' . substr(str_replace('"','', preg_replace("/\r\n|\r|\n/",'\\n',get_the_content())),0, 450) . '...", "link": "'. get_permalink()  . '"});';
                 }
             
          }

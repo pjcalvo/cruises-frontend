@@ -100,7 +100,7 @@ var distance = 50;
 var speed = 20;
 
 function autoScrollTo(el) {
-    var currentY = window.pageYOffset;
+    
     var targetY = document.getElementById(el).offsetTop;
     var bodyHeight = document.body.offsetHeight;
     var yPos = currentY + window.innerHeight;
